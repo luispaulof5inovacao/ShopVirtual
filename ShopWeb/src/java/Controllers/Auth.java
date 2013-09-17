@@ -5,6 +5,7 @@ package Controllers;
  * and open the template in the editor.
  */
 
+import Library.Conexao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -36,7 +37,9 @@ public class Auth extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
            
-            String nome = request.getParameter("nome");
+            String email = request.getParameter("email");
+            String senha = request.getParameter("senha");
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -44,9 +47,24 @@ public class Auth extends HttpServlet {
             out.println("<title>Servlet LuisPaulo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LuisPaulo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LuisPaulo at " + email + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
+         try
+        {
+            Conexao bd = new Conexao ();
+
+            bd.execComando("create table teste (cod int, nome varchar(30))");
+            bd.execComando("alter table teste add constraint PK_TESTE primary key (cod)");
+
+            bd.fecharConexao ();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }   
+            
         } finally {            
             out.close();
         }
