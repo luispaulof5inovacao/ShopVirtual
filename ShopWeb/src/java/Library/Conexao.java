@@ -54,6 +54,8 @@ public class Conexao
     {
         try
         {
+            System.out.println("-->"+cmdSQL);
+            
             this.comando.executeUpdate (cmdSQL);
         }
         catch (SQLException e)

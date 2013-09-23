@@ -6,6 +6,8 @@ package Controllers;
  */
 
 import Library.Conexao;
+import Models.Usuario;
+import Models.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LuisPaulo
  */
-@WebServlet(urlPatterns = {"/Auth"})
-public class Auth extends HttpServlet {
+@WebServlet(urlPatterns = {"/ControllerUsuarios"})
+public class ControllerUsuarios extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -31,45 +33,35 @@ public class Auth extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-           
-            String email = request.getParameter("email");
-            String senha = request.getParameter("senha");
-            
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LuisPaulo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LuisPaulo at " + email + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            
-         try
-        {
-            Conexao bd = new Conexao ();
+    protected void put(HttpServletRequest request, HttpServletResponse response)
+                   throws ServletException, IOException {
+        
+      try{  
+          
+          response.setContentType("text/html;charset=UTF-8");
+          PrintWriter out = response.getWriter();
 
-            bd.execComando("create table teste (cod int, nome varchar(30))");
-            bd.execComando("alter table teste add constraint PK_TESTE primary key (cod)");
+          String email = request.getParameter("email");
+          String nome = request.getParameter("nome");
+          String senha = request.getParameter("senha");
+          String confimacaosenha = request.getParameter("confimacaosenha");
 
-            bd.fecharConexao ();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }   
+          Usuario usuario = new Usuario();
+          Usuarios usuarios = new Usuarios();
+          
+          usuario.setEmail(email);
+          usuario.setSenha(senha);
+          usuario.setNome(nome);
+          
+          usuarios.insert();
+          
             
-        } finally {            
-            out.close();
-        }
+      }catch(Exception e){
+      
+      }
+    
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
@@ -83,7 +75,7 @@ public class Auth extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        put(request, response);
     }
 
     /**
@@ -98,7 +90,7 @@ public class Auth extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        put(request, response);
     }
 
     /**

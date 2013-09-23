@@ -9,16 +9,40 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        
+
         <div>
-            <form action="Auth" method="post">
-                <label>Email</label>
-                <input type="email" name="email" id="email" >                
-                <label>Senha</label>
-                <input type="password" name="senha" id="senha" required>               
+            <form action="ControllerAuth" method="post">
+
+                <label>Email</label><br>
+                <input type="email" name="email" id="email" required><br>  
+
+                <label>Senha</label><br>
+                <input type="password" name="senha" id="senha" required><br>  
+
+                <input type="submit" name="salvar">         
+
+            </form>
+
+            <br><span>Novo por aqui ?</span><br><br>
+
+            <form action="ControllerUsuarios" method="post">
+
+                <label>Nome completo</label><br>
+                <input type="text" name="nome" id="nome" required><br>    
+
+                <label>Email</label><br>
+                <input type="email" name="email" id="email" required><br>  
+
+                <label>Senha</label><br>
+                <input type="password" name="senha" id="senha" required><br>  
+
+                <label>Confirmar senha</label><br>
+                <input type="password" name="confimacaosenha" id="confimacaosenha" required><br>  
+
                 <input type="submit" name="salvar">                
             </form>
+
         </div>
-            
+
     </body>
 </html>
