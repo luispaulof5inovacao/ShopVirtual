@@ -4,8 +4,8 @@ package Controllers;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import Library.Conexao;
+import Models.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 /**
  *
@@ -36,38 +38,43 @@ public class ControllerAuth extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-           
+
             String email = request.getParameter("email");
             String senha = request.getParameter("senha");
+
+            Usuarios usuarios = new Usuarios();
+            HttpSession session = request.getSession();
+
+            usuarios.setEmail(email);
+            usuarios.setSenha(senha);
             
-            /* TODO output your page here. You may use following sample code. */
+            /*sucesso ao logar*/ 
+            if(usuarios.auth()){
+                                
+                session.setAttribute("usuario_nome", usuarios.getNome());
+                session.setAttribute("usuario_email", usuarios.getEmail());
+                
+                System.out.println("---->"+usuarios.getEmail());
+                System.out.println("---->"+usuarios.getNome());
+                response.sendRedirect("/ShopWeb/home.jsp");  
+            }
+            session.invalidate();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LuisPaulo</title>");            
+            out.println("<title>Erro login</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LuisPaulo at " + email + "</h1>");
+            out.println("<h1>Verifique o login ou senha.</h1>");
             out.println("</body>");
-            out.println("</html>");
-            
-         try
-        {
-            Conexao bd = new Conexao ();
+            out.println("</html>");            
+//            response.sendRedirect("/ShopWeb/");
 
-            bd.execComando("create table teste (cod int, nome varchar(30))");
-            bd.execComando("alter table teste add constraint PK_TESTE primary key (cod)");
-
-            bd.fecharConexao ();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }   
             
-        } finally {            
-            out.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

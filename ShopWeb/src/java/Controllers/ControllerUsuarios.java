@@ -46,12 +46,11 @@ public class ControllerUsuarios extends HttpServlet {
           String senha = request.getParameter("senha");
           String confimacaosenha = request.getParameter("confimacaosenha");
 
-          Usuario usuario = new Usuario();
           Usuarios usuarios = new Usuarios();
           
-          usuario.setEmail(email);
-          usuario.setSenha(senha);
-          usuario.setNome(nome);
+          usuarios.setEmail(email);
+          usuarios.setSenha(senha);
+          usuarios.setNome(nome);
           
           usuarios.insert();
           

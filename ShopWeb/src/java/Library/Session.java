@@ -2,19 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models;
+package Library;
 
-import com.google.common.base.Function;
-import com.sun.xml.rpc.processor.config.NoMetadataModelInfo;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author LuisPaulo
  */
-public class Usuario {
+public class Session{
     
-
     
-   
+  
+    
+    
     
 }
