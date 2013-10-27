@@ -13,61 +13,38 @@ import javax.servlet.http.HttpSession;
  *
  * @author LuisPaulo
  */
-public class Usuario {
+public class Prateleira {
 
-    protected String email = null;
     protected String nome = null;
-    protected String senha = null;
-    protected int flFornecedor = 0;
     protected int idUsuario = 0;
-    
-    
-    public Usuario() throws Exception {
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    protected int idCategoria = 0;
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    
-    public void setflFornecedor(int flFornecedor) {
-        this.flFornecedor = flFornecedor;
-    }
     
     public void setidUsuario(int  idUsuario) {
         this.idUsuario = idUsuario;
     }
     
-    
-    public String getEmail() {
-        return this.email;
+    public void setidCategoria(int  idCategoria) {
+        this.idCategoria = idCategoria;
     }
-
+    
     public String getNome() {
         return this.nome;
     }
 
-    public int getflFornecedor() {
-        return this.flFornecedor ;
-    }
-    
     public int getidUsuario() {
         return this.idUsuario ;
     }
     
-    public String getSenha() {
-        return this.senha ;
+    public int getidCategoria() {
+        return this.idCategoria ;
     }
     
-    
- 
-
+    public Prateleira() throws Exception {
+    }
 
 }

@@ -5,9 +5,11 @@ package Controllers;
  * and open the template in the editor.
  */
 import Library.Conexao;
+import Models.Usuario;
 import Models.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,32 +44,40 @@ public class ControllerAuth extends HttpServlet {
             String email = request.getParameter("email");
             String senha = request.getParameter("senha");
 
-            Usuarios usuarios = new Usuarios();
+            Usuario usuario = new Usuario();            
+            Usuarios daoUsuario = new Usuarios();            
             HttpSession session = request.getSession();
-
-            usuarios.setEmail(email);
-            usuarios.setSenha(senha);
+                
+            usuario.setEmail( email );
+            usuario.setSenha( senha );
             
             /*sucesso ao logar*/ 
-            if(usuarios.auth()){
+            if( daoUsuario.isAutentic( usuario )){
                                 
-                session.setAttribute("usuario_nome", usuarios.getNome());
-                session.setAttribute("usuario_email", usuarios.getEmail());
+                ResultSet dadosUsuario = daoUsuario.comEmail(email);
+                dadosUsuario.first();
                 
-                System.out.println("---->"+usuarios.getEmail());
-                System.out.println("---->"+usuarios.getNome());
-                response.sendRedirect("/ShopWeb/home.jsp");  
+                session.setAttribute("nome", dadosUsuario.getString( "ST_NOME_USU" ));
+                session.setAttribute("email", dadosUsuario.getString( "ST_EMAIL_USU" ) );
+                session.setAttribute("usuario", dadosUsuario.getInt( "ID_USUARIO_USU" ) );
+                session.setAttribute("fornecedor", dadosUsuario.getInt( "FL_FORNECEDOR_USU" ) );
+
+                System.out.println("---->IDUSUARIO" + session.getAttribute("usuario") );
+                response.sendRedirect("/ShopWeb/usuarios/home.jsp");  
+                
+            }else{
+            
+                session.invalidate();
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Erro login</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Verifique o login ou senha.</h1>");
+                out.println("</body>");
+                out.println("</html>");     
             }
-            session.invalidate();
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Erro login</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Verifique o login ou senha.</h1>");
-            out.println("</body>");
-            out.println("</html>");            
 //            response.sendRedirect("/ShopWeb/");
 
             

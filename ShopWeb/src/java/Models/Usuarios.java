@@ -16,58 +16,21 @@ import javax.servlet.http.HttpSession;
 public class Usuarios {
 
     protected Conexao bd;
-    protected String email;
-    protected String nome;
-    protected String senha;
-    protected String flFornecedor;
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    
-    public void setflFornecedor(String flFornecedor) {
-        this.flFornecedor = flFornecedor;
-    }
-    
-    
-    public String getEmail() {
-        return this.email;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getflFornecedor() {
-        return this.flFornecedor ;
-    }
-    
-    
-    
 
     public Usuarios() throws Exception {
         this.bd = new Conexao();
     }
 
-    public void insert() throws Exception {
+    public boolean insert( Usuario usuario) throws Exception {
 
         try {
-
 
             Integer contUsuario = 0;
 
             String query = "INSERT INTO `usuarios`(ST_NOME_USU,ST_EMAIL_USU,ST_SENHA_USU) "
-                    + "VALUES ('" + this.nome + "', '" + this.email + "', '" + this.senha + "')";
+                    + "VALUES ('" + usuario.getNome() + "', '" + usuario.getEmail() + "', '" + usuario.getSenha() + "')";
 
-            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + this.email + "'";
+            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + usuario.getEmail() + "'";
 
             ResultSet resultado = bd.execConsulta(consulta);
 
@@ -75,56 +38,75 @@ public class Usuarios {
                 contUsuario++;
             }
 
-            if (contUsuario > 0) {
-                throw new Exception("Usuario já cadastro");
-            }
-
-//     System.out.println("-->"+contUsuario);
-
-            bd.execComando(query);
+            if (contUsuario > 0) 
+                return false;
+                  
+//            System.out.println("-->Inserte : "+usuario.getNome());
+//            System.out.println("-->Inserte Email :"+usuario.getEmail());
+//            System.out.println("-->Inserte ssenha: "+usuario.getSenha());
+            
+            bd.execComando( query );
             bd.fecharConexao();
+            
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return true;
 
     }
+    
+    public ResultSet comEmail( String email ) throws Exception{
+        
+        String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + email + "' ";        
+        ResultSet dadosUsuario = bd.execConsulta(consulta);
+        
+        return dadosUsuario;    
+    
+    }
 
-    public boolean auth() throws Exception {
-
-        try {
+    public boolean isAutentic( Usuario usuario ) throws Exception {
 
             Integer contUsuario = 0;
 
-            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + this.email + "'AND ST_SENHA_USU = '" + this.senha + "' ";
-            ResultSet resultado = bd.execConsulta(consulta);
-
-            while (resultado.next())
-                 contUsuario++;
-              
-            if ( contUsuario == 1 ) {
-                
-                this.setNome(resultado.getString("ST_NOME_USU"));
-                this.setEmail(resultado.getString("ST_SENHA_USU"));
-                
-                return true;
-                
-            }
-
-            if (contUsuario < 1) {
-                return false;
-            }
+            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + usuario.getEmail() + "'AND ST_SENHA_USU = '" + usuario.getSenha() + "' ";
+            ResultSet dadosUsuario = bd.execConsulta(consulta);
+//            bd.fecharConexao();
             
+            
+            return dadosUsuario.next();
 
+//            while (dadosUsuario.next())
+//                 contUsuario++;
+//              
+//            if ( contUsuario == 1 ) {
+//                
+//                dadosUsuario.first();
+//                
+//               Usuario usuarioLogado = new Usuario();
+//               
+//               usuarioLogado.setEmail( dadosUsuario.getString( "ST_EMAIL_USU" ) );
+//               usuarioLogado.setNome( dadosUsuario.getString( "ST_NOME_USU" ) );
+//               usuarioLogado.setSenha(  dadosUsuario.getString( "ST_SENHA_USU" ) );
+//               usuarioLogado.setflFornecedor( dadosUsuario.getInt( "FL_FORNECEDOR_USU" ) ); 
+//               usuarioLogado.setidUsuario( dadosUsuario.getInt( "ID_USUARIO_USU" ) );              
+//                   
+//                
+//                return true;
+//                
+//            }
+//
+//            if (contUsuario < 1) {
+//                return false;
+//            }
+            
+       
 
+        
+//        return false;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        bd.fecharConexao();
-
-        return true;
+        
     }
 
     private String MD5(String senha) {

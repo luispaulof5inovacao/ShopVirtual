@@ -46,13 +46,39 @@ public class ControllerUsuarios extends HttpServlet {
           String senha = request.getParameter("senha");
           String confimacaosenha = request.getParameter("confimacaosenha");
 
-          Usuarios usuarios = new Usuarios();
+          Usuario usuario = new Usuario();
+          Usuarios daoUsuarios = new Usuarios();
           
-          usuarios.setEmail(email);
-          usuarios.setSenha(senha);
-          usuarios.setNome(nome);
+          usuario.setEmail( email );
+          usuario.setSenha( senha );
+          usuario.setNome( nome );
           
-          usuarios.insert();
+         
+          if( !daoUsuarios.insert( usuario )){          
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Erro de cadastro</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Email já esta sendo utilizado.</h1>");
+            out.println("</body>");
+            out.println("</html>");  
+          }else{
+              
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Sucesso</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Cadastro efetuado com sucesso. </h1>");
+            out.println("</body>");
+            out.println("</html>");  
+            
+          }
+          
+          
           
             
       }catch(Exception e){
