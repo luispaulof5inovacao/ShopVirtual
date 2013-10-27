@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 public class Prateleiras {
 
     protected Conexao bd;
+    private ResultSet resultado;
  
     public Prateleiras() throws Exception {
         this.bd = new Conexao();
@@ -41,6 +42,26 @@ public class Prateleiras {
             e.printStackTrace();
         }
         return true;
+
+    }
+    
+    public ResultSet prateleiras () throws Exception {
+
+        try {
+
+            Integer contUsuario = 0;
+
+            String query = "Select * from prateleiras";
+            
+            ResultSet resultado = bd.execConsulta( query );
+            
+            return resultado;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return resultado;
 
     }
 
