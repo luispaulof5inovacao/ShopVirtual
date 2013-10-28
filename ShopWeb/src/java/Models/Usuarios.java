@@ -21,7 +21,7 @@ public class Usuarios {
         this.bd = new Conexao();
     }
 
-    public boolean insert( Usuario usuario) throws Exception {
+    public boolean insert(Usuario usuario) throws Exception {
 
         try {
 
@@ -38,16 +38,17 @@ public class Usuarios {
                 contUsuario++;
             }
 
-            if (contUsuario > 0) 
+            if (contUsuario > 0) {
                 return false;
-                  
+            }
+
 //            System.out.println("-->Inserte : "+usuario.getNome());
 //            System.out.println("-->Inserte Email :"+usuario.getEmail());
 //            System.out.println("-->Inserte ssenha: "+usuario.getSenha());
-            
-            bd.execComando( query );
+
+            bd.execComando(query);
             bd.fecharConexao();
-            
+
             return true;
 
         } catch (Exception e) {
@@ -56,26 +57,62 @@ public class Usuarios {
         return true;
 
     }
-    
-    public ResultSet comEmail( String email ) throws Exception{
-        
-        String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + email + "' ";        
-        ResultSet dadosUsuario = bd.execConsulta(consulta);
-        
-        return dadosUsuario;    
-    
-    }
 
-    public boolean isAutentic( Usuario usuario ) throws Exception {
+    public boolean update(Usuario usuario) throws Exception {
+
+        try {
 
             Integer contUsuario = 0;
 
-            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + usuario.getEmail() + "'AND ST_SENHA_USU = '" + usuario.getSenha() + "' ";
-            ResultSet dadosUsuario = bd.execConsulta(consulta);
+            String query = "UPDATE `usuarios`"
+                    + "SET "
+                    + "ST_NOME_USU = " + usuario.getNome()
+                    + "ST_SEXO_USU = " + usuario.getSexo()
+                    + "where ID_USUARIO_USU = " + usuario.getidUsuario();
+            
+            bd.execComando( query );
+            bd.fecharConexao();
+
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+
+    }
+
+    public ResultSet comEmail(String email) throws Exception {
+
+        String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + email + "' ";
+        ResultSet dadosUsuario = bd.execConsulta(consulta);
+
+        return dadosUsuario;
+
+    }
+
+    public ResultSet comId(int idUsuario) throws Exception {
+
+        String consulta = "SELECT * FROM USUARIOS WHERE ID_USUARIO_USU = '" + idUsuario + "' ";
+
+//        System.out.println("comId:" + consulta);
+
+        ResultSet dadosUsuario = bd.execConsulta(consulta);
+
+        return dadosUsuario;
+
+    }
+
+    public boolean isAutentic(Usuario usuario) throws Exception {
+
+        Integer contUsuario = 0;
+
+        String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + usuario.getEmail() + "'AND ST_SENHA_USU = '" + usuario.getSenha() + "' ";
+        ResultSet dadosUsuario = bd.execConsulta(consulta);
 //            bd.fecharConexao();
-            
-            
-            return dadosUsuario.next();
+
+
+        return dadosUsuario.next();
 
 //            while (dadosUsuario.next())
 //                 contUsuario++;
@@ -100,13 +137,13 @@ public class Usuarios {
 //            if (contUsuario < 1) {
 //                return false;
 //            }
-            
-       
 
-        
+
+
+
 //        return false;
 
-        
+
     }
 
     private String MD5(String senha) {

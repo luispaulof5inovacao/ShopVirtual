@@ -86,6 +86,40 @@ public class ControllerUsuarios extends HttpServlet {
       }
     
     }
+    protected void post(HttpServletRequest request, HttpServletResponse response)
+                   throws ServletException, IOException {
+        
+      try{  
+          
+          response.setContentType("text/html;charset=UTF-8");
+          PrintWriter out = response.getWriter();
+
+          String email = request.getParameter("email");
+          String nome = request.getParameter("nome");
+          String senha = request.getParameter("senha");
+          String sexo = request.getParameter("sexo");
+
+          Usuario usuario = new Usuario();
+          Usuarios daoUsuarios = new Usuarios();
+          
+          usuario.setEmail( email );
+          usuario.setSenha( senha );
+          usuario.setNome( nome );
+          usuario.setSexo(sexo );
+          
+         
+          if( daoUsuarios.update( usuario )){ 
+             out.println("<h1>Cadastro atualizado com sucesso. </h1>");                    
+          }
+          
+          
+          
+            
+      }catch(Exception e){
+      
+      }
+    
+    }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -101,6 +135,7 @@ public class ControllerUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         put(request, response);
+        post(request, response);
     }
 
     /**
@@ -116,6 +151,7 @@ public class ControllerUsuarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         put(request, response);
+        post(request, response);
     }
 
     /**

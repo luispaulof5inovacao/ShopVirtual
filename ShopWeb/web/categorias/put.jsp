@@ -3,9 +3,9 @@
     Created on : 21/10/2013, 09:01:09
     Author     : LuisPaulo
 --%>
-<%
+
        
-%>
+<%@page import="Controllers.ControllerCategorias"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

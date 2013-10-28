@@ -25,5 +25,8 @@
         <div>
             <a href="../usuarios/produtos.jsp?usuario=<%= session.getAttribute("usuario") %>">Meus produtos</a>
         </div>
+        <div>
+            <a href="../usuarios/dadosusuario.jsp?usuario=<%= session.getAttribute("usuario") %>">Informações pessoais</a>
+        </div>
     </body>
 </html>

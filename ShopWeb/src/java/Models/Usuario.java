@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 public class Usuario {
 
     protected String email = null;
+    protected String sexo = null;
     protected String nome = null;
     protected String senha = null;
     protected int flFornecedor = 0;
@@ -45,9 +46,17 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
     
+    public void setSexo(String  sexo) {
+        this.sexo = sexo;
+    }
+    
     
     public String getEmail() {
         return this.email;
+    }
+    
+    public String getSexo() {
+        return this.sexo;
     }
 
     public String getNome() {

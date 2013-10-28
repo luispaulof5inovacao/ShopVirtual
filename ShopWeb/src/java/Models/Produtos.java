@@ -82,7 +82,7 @@ public class Produtos {
 
             Integer contUsuario = 0;
 
-            String query = "Select * from produtos where ";
+            String query = "Select * from produtos where  ";
             
             ResultSet resultado = bd.execConsulta( query );
             

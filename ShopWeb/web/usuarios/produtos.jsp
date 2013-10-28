@@ -4,7 +4,16 @@
     Author     : LuisPaulo
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Models.Produtos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+      int idUsuario= Integer.parseInt( request.getParameter("usuario") );
+      Produtos produtos = new Produtos();
+      ResultSet _produtos = produtos.comId( idUsuario );
+//      _usuario.next();
+%>
 <!DOCTYPE html>
 <html>
     <head>

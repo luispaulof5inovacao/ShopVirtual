@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LuisPaulo
  */
-@WebServlet(name = "ControllerCategorias", urlPatterns = {"/ControllerCategorias"})
+@WebServlet("/categorias/ControllerCategorias")
 public class ControllerCategorias extends HttpServlet {
 
     /**
@@ -33,7 +33,7 @@ public class ControllerCategorias extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void put(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -67,7 +67,7 @@ public class ControllerCategorias extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            put(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ControllerCategorias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,7 +86,7 @@ public class ControllerCategorias extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            put(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ControllerCategorias.class.getName()).log(Level.SEVERE, null, ex);
         }
