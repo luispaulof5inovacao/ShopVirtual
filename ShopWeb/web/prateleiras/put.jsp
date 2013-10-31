@@ -7,7 +7,7 @@
 <%@page import="Models.Categorias"%>
 <%
       Categorias categorias = new Categorias();
-      ResultSet _categorias = categorias.categorias();
+      ResultSet _categorias = categorias.getCategorias();
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

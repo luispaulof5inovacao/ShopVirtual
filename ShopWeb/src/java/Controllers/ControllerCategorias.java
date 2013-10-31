@@ -44,7 +44,7 @@ public class ControllerCategorias extends HttpServlet {
            
            Categoria categoria = new Categoria( nomeCategoria, idUsuario );
            Categorias daoCategoria = new Categorias();            
-           if( daoCategoria.insert(categoria) )
+           if( daoCategoria.insert( categoria,idUsuario ) )
                response.sendRedirect("/ShopWeb/usuarios/categorias.jsp"); 
            
         } finally {            
