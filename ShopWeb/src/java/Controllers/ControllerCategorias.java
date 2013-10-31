@@ -40,13 +40,12 @@ public class ControllerCategorias extends HttpServlet {
         try {
             /* TODO output your page here. You may use following sample code. */
            String nomeCategoria = request.getParameter("nome");
+           int idUsuario =  Integer.parseInt( request.getParameter("usuario") );
            
-           Categoria categoria = new Categoria();
-           Categorias daoCategoria = new Categorias();
-           
-           categoria.setNome(nomeCategoria);
-            
-           daoCategoria.insert(categoria);       
+           Categoria categoria = new Categoria( nomeCategoria, idUsuario );
+           Categorias daoCategoria = new Categorias();            
+           if( daoCategoria.insert(categoria) )
+               response.sendRedirect("/ShopWeb/usuarios/categorias.jsp"); 
            
         } finally {            
             out.close();

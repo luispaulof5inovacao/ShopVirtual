@@ -15,12 +15,17 @@ import javax.servlet.http.HttpSession;
  */
 public class Categoria {
 
-    protected Conexao bd;
+     
     protected String nome = null;
     protected int idUsuario = 0;
 
+    public Categoria( String _nome, int _idUsuario) {
+       this.nome = _nome;
+       this.idUsuario = _idUsuario;
+    }
     public Categoria() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.nome = null;
+       this.idUsuario = 0;
     }
 
     public void setNome(String nome) {
