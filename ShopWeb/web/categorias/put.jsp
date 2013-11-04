@@ -20,6 +20,7 @@
                 <label>Nome</label><br>
                 <input type="text" name="nome" id="nome" required><br>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">    
+                <input type="hidden" name="acao" id="put" value="put">    
                 <input type="submit" name="salvar">       
             </form>
         </div>

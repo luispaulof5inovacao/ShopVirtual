@@ -33,23 +33,47 @@ public class ControllerCategorias extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void put(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-           String nomeCategoria = request.getParameter("nome");
-           int idUsuario =  Integer.parseInt( request.getParameter("usuario") );
+
+           String acao = request.getParameter("acao");
+
            
-           Categoria categoria = new Categoria( nomeCategoria, idUsuario );
-           Categorias daoCategoria = new Categorias();            
-           if( daoCategoria.insert( categoria,idUsuario ) )
-               response.sendRedirect("/ShopWeb/usuarios/categorias.jsp"); 
+           if( acao.equals("post") )
+               this.post( request , response );
+           
+           if( acao.equals("put") )
+               this.put( request , response );
+               
+
            
         } finally {            
             out.close();
         }
+    }
+    
+    protected void put( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
+                   
+        int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+        String nomeCategoria = request.getParameter("nome");
+        
+        Categoria categoria = new Categoria(nomeCategoria, idUsuario);
+        Categorias daoCategoria = new Categorias();
+
+        if (daoCategoria.insert(categoria, idUsuario)) {
+            response.sendRedirect("/ShopWeb/usuarios/categorias.jsp");
+        }       
+    
+    
+    }
+    protected void post( HttpServletRequest request, HttpServletResponse response ){
+    
+    
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,7 +90,7 @@ public class ControllerCategorias extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            put(request, response);
+            processRequest(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ControllerCategorias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -85,7 +109,7 @@ public class ControllerCategorias extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            put(request, response);
+            processRequest(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ControllerCategorias.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -100,4 +124,6 @@ public class ControllerCategorias extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+ 
 }

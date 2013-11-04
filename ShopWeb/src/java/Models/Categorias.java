@@ -94,6 +94,27 @@ public class Categorias {
         return resultado;
 
     }
+   public ResultSet categoria( int idUsuario, int idCategoria ) throws Exception {
+
+        try {
+
+            String queryCategoria   = "select categorias_usuario.*,categorias.ST_NOME_CAT\n" +
+                            "from categorias_usuario\n" +
+                            "LEFT JOIN categorias on ( categorias.ID_CATEGORIA_CAT = categorias_usuario.ID_CATEGORIA_CAT)\n" +
+                            "where categorias_usuario.ID_USUARIO_USU = '"+ idUsuario +"'"
+                          + "and categorias.ID_CATEGORIA_CAT = '"+ idCategoria +"' ";
+            
+            ResultSet resultado = bd.execConsulta( queryCategoria );
+            
+            return resultado;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return resultado;
+
+    }
 
     private String MD5(String senha) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

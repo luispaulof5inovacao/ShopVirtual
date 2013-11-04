@@ -24,7 +24,7 @@
         <h1>Minhas categorias cadastras</h1>
 
          <div>
-             <a href="../categorias/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar Categoria</a>
+             <a href="../categorias/put.jsp">Cadastrar Categoria</a>
         </div>
         <div>
             <table>
@@ -34,7 +34,7 @@
                 <% if (nmCategorias == 0) {%>
                 <tr>
                     <%}%>
-                    <td><a href="#"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%></a><td> 
+                    <td><a href="../categorias/post.jsp?categoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT") %>&usuario=<%= session.getAttribute("usuario") %>"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> </a><td> 
 
                         <%   
                              nmCategorias++;
