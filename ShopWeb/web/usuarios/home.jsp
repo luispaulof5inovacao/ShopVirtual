@@ -20,7 +20,7 @@
             <a href="../usuarios/categorias.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas categorias</a>
         </div>
         <div>
-            <a href="../usuarios/prateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas prateleiras</a>
+            <a href="../usuarios/categoriasprateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas prateleiras</a>
         </div>
         <div>
             <a href="../usuarios/produtos.jsp?usuario=<%= session.getAttribute("usuario") %>">Meus produtos</a>

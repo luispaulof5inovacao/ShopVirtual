@@ -41,6 +41,29 @@ public class Categorias {
             String queryUsuarioCategorias = "INSERT INTO `categorias_usuario`( ID_CATEGORIA_CAT, ID_USUARIO_USU ) "
                     + "VALUES ('" + _idCategoria + "', '"+ idUsuario +"')";
 
+            bd.execComando( queryUsuarioCategorias );              
+            
+            bd.fecharConexao();
+            
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+
+    }
+    public boolean post( Categoria categoria ) throws Exception {
+
+        try {
+
+            Integer contUsuario = 0;
+
+            
+            String queryUsuarioCategorias = "UPDATE `categorias` "
+                    + " set categorias.ST_NOME_CAT = '"+categoria.getNome()+"'"
+                    + "WHERE categorias.ID_CATEGORIA_CAT = '"+categoria.getIdCategoria()+"' ";
+
             bd.execComando( queryUsuarioCategorias );  
             
             
@@ -82,6 +105,7 @@ public class Categorias {
                             "from categorias_usuario\n" +
                             "LEFT JOIN categorias on ( categorias.ID_CATEGORIA_CAT = categorias_usuario.ID_CATEGORIA_CAT)\n" +
                             "where categorias_usuario.ID_USUARIO_USU = '"+ idUsuario +"' ";
+            
             
             ResultSet resultado = bd.execConsulta( queryCategoriasDoUsuario );
             

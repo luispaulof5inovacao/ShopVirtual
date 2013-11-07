@@ -6,8 +6,9 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Categorias"%>
 <%
+     Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
       Categorias categorias = new Categorias();
-      ResultSet _categorias = categorias.getCategorias();
+      ResultSet _categorias = categorias.doUsuario(idUsuario );
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,8 +32,9 @@
                     <% } %>
                 </select>
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>"> 
+                <input type="hidden" name="acao" id="acao" value="put"> 
                 <br>
-                <input type="submit" name="salvar">         
+                <input type="submit" name="salvar" value="salvar">         
 
             </form>
         </div>

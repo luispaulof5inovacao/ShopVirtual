@@ -4,6 +4,8 @@
  */
 package Controllers;
 
+import Models.Categoria;
+import Models.Categorias;
 import Models.Prateleira;
 import Models.Prateleiras;
 import java.io.IOException;
@@ -38,23 +40,53 @@ public class ControllerPrateleiras extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            String nomePrateleira = request.getParameter("nome");
-            int idUsuario = Integer.parseInt(request.getParameter("usuario"));
-            int idCategoria = Integer.parseInt(request.getParameter("categoria"));
-
-            Prateleira prateleira = new Prateleira();
-            Prateleiras daoPrateleiras = new Prateleiras();
-            System.out.println("nome");
-
-            prateleira.setNome(nomePrateleira);
-            prateleira.setidCategoria(idCategoria);
-            prateleira.setidUsuario(idUsuario);
-
-            daoPrateleiras.insert(prateleira);
+            
+                                
+           String acao = request.getParameter("acao");
+           
+           if( acao.equals("post") )
+               this.post( request , response );
+           
+           if( acao.equals("put") )
+               this.put( request , response );
+           
+ 
         } finally {            
             out.close();
         }
+    }
+    
+   protected void put( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
+                   
+            /* TODO output your page here. You may use following sample code. */
+        String nomePrateleira = request.getParameter("nome");
+        int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+        int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+        
+       Prateleira prateleira = new Prateleira( nomePrateleira, idCategoria, idUsuario);
+       Prateleiras daoPrateleiras = new Prateleiras();
+
+        if (daoPrateleiras.insert( prateleira, idUsuario )) {
+            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp");
+        }       
+    
+    
+    }
+   protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
+                   
+            /* TODO output your page here. You may use following sample code. */
+        String nomePrateleira = request.getParameter("nome");
+        int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+        int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+        
+       Prateleira prateleira = new Prateleira();
+       Prateleiras daoPrateleiras = new Prateleiras();
+
+        if (daoPrateleiras.insert( prateleira, idUsuario)) {
+            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp");
+        }       
+    
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

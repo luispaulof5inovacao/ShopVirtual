@@ -18,6 +18,19 @@ public class Prateleira {
     protected String nome = null;
     protected int idUsuario = 0;
     protected int idCategoria = 0;
+    
+    
+    public Prateleira() throws Exception {
+        this.nome = null;
+        this.idCategoria = 0;
+        this.idUsuario = 0;
+    }
+    
+    public Prateleira( String _nome, int _idCategoria, int _idUsuario) throws Exception {
+        this.nome = _nome;
+        this.idCategoria = _idCategoria;
+        this.idUsuario = _idUsuario;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -44,7 +57,6 @@ public class Prateleira {
         return this.idCategoria ;
     }
     
-    public Prateleira() throws Exception {
-    }
+
 
 }

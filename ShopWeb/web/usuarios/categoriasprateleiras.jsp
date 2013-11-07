@@ -1,6 +1,6 @@
 <%-- 
-    Document   : categorias
-    Created on : 21/10/2013, 09:48:54
+    Document   : prateleiras
+    Created on : 23/10/2013, 09:31:02
     Author     : LuisPaulo
 --%>
 <%@page import="java.sql.ResultSet"%>
@@ -18,14 +18,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Minhas Categorias</title>
+        <title>Minhas prateleiras</title>
     </head>
     <body>
-        <h1>Minhas categorias cadastras</h1>
-
-         <div>
-             <a href="../categorias/put.jsp">Cadastrar Categoria</a>
-        </div>
+        <h1>Minhas prateleiras</h1>
+        <h2>Selecione a categoria</h2>
+<!--         <div>
+             <a href="../prateleiras/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar prateleira</a>
+        </div>-->
         <div>
             <table>
                 <%  int nmCategorias = 0;
@@ -34,7 +34,7 @@
                 <% if (nmCategorias == 0) {%>
                 <tr>
                     <%}%>
-                    <td><a href="../categorias/post.jsp?categoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT") %>&usuario=<%= session.getAttribute("usuario") %>"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> </a><td> 
+                    <td><a href="../usuarios/prateleiras.jsp?categoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT") %>&usuario=<%= session.getAttribute("usuario") %>"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> </a><td> 
 
                         <%   
                              nmCategorias++;

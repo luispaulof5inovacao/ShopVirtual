@@ -61,7 +61,9 @@ public class ControllerCategorias extends HttpServlet {
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         String nomeCategoria = request.getParameter("nome");
         
-        Categoria categoria = new Categoria(nomeCategoria, idUsuario);
+        int idCategoria = 0;
+        
+        Categoria categoria = new Categoria(nomeCategoria, idUsuario, idCategoria );
         Categorias daoCategoria = new Categorias();
 
         if (daoCategoria.insert(categoria, idUsuario)) {
@@ -70,8 +72,19 @@ public class ControllerCategorias extends HttpServlet {
     
     
     }
-    protected void post( HttpServletRequest request, HttpServletResponse response ){
+    protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{
     
+        int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+        int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+        
+        String nomeCategoria = request.getParameter("nome");
+        
+        Categoria categoria = new Categoria( nomeCategoria, idUsuario, idCategoria );
+        Categorias daoCategoria = new Categorias();
+
+        if (daoCategoria.post( categoria )) {
+            response.sendRedirect("/ShopWeb/usuarios/categorias.jsp");
+        }  
     
     
     }

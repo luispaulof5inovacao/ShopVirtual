@@ -26,14 +26,16 @@
         <title>Categorias</title>
     </head>
     <body>
-        <h1>Cadastre uma nova categoria de produtos</h1>
+        <h1>Categoria <%=  _categoria.getString("ST_NOME_CAT") %></h1>
         <div>
             <form action="ControllerCategorias" method="post">
                 <label>Nome</label><br>
                 <input type="text" name="nome" id="nome"  value=" <%=  _categoria.getString("ST_NOME_CAT")%>"  required><br>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">   
+                <input type="hidden" name="categoria" id="categoria" value="<%= idCategoria %>">   
                 <input type="hidden" name="acao" id="post" value="post">    
-                <input type="submit" name="salvar">       
+                <input type="submit" name="salvar" value="salvar">  
+                <a href='javascript:history.back(1)'>cancelar</a>
             </form>
         </div>
 
