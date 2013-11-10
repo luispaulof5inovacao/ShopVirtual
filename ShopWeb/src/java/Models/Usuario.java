@@ -23,8 +23,24 @@ public class Usuario {
     protected int idUsuario = 0;
     
     
-    public Usuario() throws Exception {
+    public Usuario( String _email, String _sexo, String _nome, String _senha, int _flFornecedor, int _idUsuario) throws Exception {
+        this.email = _email;
+        this.sexo = _sexo;
+        this.senha = _senha;
+        this.nome = _nome;
+        this.flFornecedor = _flFornecedor;
+        this.idUsuario = _idUsuario;
     }
+    
+    public Usuario() throws Exception {
+        this.email = null;
+        this.sexo = null;
+        this.senha = null;
+        this.nome = null;
+        this.flFornecedor = 0;
+        this.idUsuario = 0;
+    }
+    
 
     public void setEmail(String email) {
         this.email = email;

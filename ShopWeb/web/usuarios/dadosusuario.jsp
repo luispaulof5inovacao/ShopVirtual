@@ -34,14 +34,15 @@
 
                 <label>Senha</label><br>
                 <input type="password" name="senha" id="senha" value=" <%= _usuario.getString("ST_SENHA_USU")%> " required><br>
-                
+                <input type="hidden" name="acao" id="acao" value="post"> 
+                <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>"> 
                 <label for="sexo"> Sexo </label><br>
                 <select name="sexo" id="instrumento">
                     <option value="1">masculino</option>
                     <option value="2">feminino</option>
                 </select><br><br>
                 <input type="submit" name="salvar">     
-                <a href='javascript:history.back(1)'>Voltar</a>
+                <a href='../usuarios/home.jsp'>Voltar</a>
             </form>
 
         </div>

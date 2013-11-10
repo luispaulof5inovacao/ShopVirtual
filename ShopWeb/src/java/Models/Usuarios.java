@@ -64,11 +64,13 @@ public class Usuarios {
 
             Integer contUsuario = 0;
 
-            String query = "UPDATE `usuarios`"
-                    + "SET "
-                    + "ST_NOME_USU = " + usuario.getNome()
-                    + "ST_SEXO_USU = " + usuario.getSexo()
-                    + "where ID_USUARIO_USU = " + usuario.getidUsuario();
+            String query = "UPDATE `usuarios` "
+                    + "SET `ST_NOME_USU`='"+usuario.getNome()+"',\n"
+                    + "`ST_EMAIL_USU`='"+usuario.getEmail()+"',\n"
+                    + "`ST_SENHA_USU`='"+usuario.getSenha()+"', \n"
+                    + "`FL_FORNECEDOR_USU`='"+usuario.getflFornecedor()+"', \n"
+                    + "`ST_SEXO_USU`='"+usuario.getSexo()+"'\n" +
+                    " WHERE (`ID_USUARIO_USU`='"+usuario.getidUsuario()+"') ";
             
             bd.execComando( query );
             bd.fecharConexao();

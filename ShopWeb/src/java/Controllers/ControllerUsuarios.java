@@ -10,6 +10,8 @@ import Models.Usuario;
 import Models.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,35 @@ public class ControllerUsuarios extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
+     * 
+     * 
      */
+    
+    
+       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, Exception {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+
+           String acao = request.getParameter("acao");
+
+           
+           if( acao.equals("post") )
+               this.post( request , response );
+           
+           if( acao.equals("put") )
+               this.put( request , response );
+               
+
+           
+        } finally {            
+            out.close();
+        }
+    }
+       
     protected void put(HttpServletRequest request, HttpServletResponse response)
                    throws ServletException, IOException {
         
@@ -94,26 +124,25 @@ public class ControllerUsuarios extends HttpServlet {
           response.setContentType("text/html;charset=UTF-8");
           PrintWriter out = response.getWriter();
 
-          String email = request.getParameter("email");
-          String nome = request.getParameter("nome");
-          String senha = request.getParameter("senha");
-          String sexo = request.getParameter("sexo");
+          String email = request.getParameter("email").trim();
+          String nome = request.getParameter("nome").trim(); 
+          String senha = request.getParameter("senha").trim(); 
+          String sexo = request.getParameter("sexo").trim(); 
+          int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+          int flFornecedor = 0;
 
-          Usuario usuario = new Usuario();
+          Usuario usuario = new Usuario( email, sexo, nome, senha, flFornecedor, idUsuario  );
           Usuarios daoUsuarios = new Usuarios();
           
-          usuario.setEmail( email );
-          usuario.setSenha( senha );
-          usuario.setNome( nome );
-          usuario.setSexo(sexo );
+//          usuario.setEmail( email );
+//          usuario.setSenha( senha );
+//          usuario.setNome( nome );
+//          usuario.setSexo(sexo );
           
          
           if( daoUsuarios.update( usuario )){ 
-             out.println("<h1>Cadastro atualizado com sucesso. </h1>");                    
-          }
-          
-          
-          
+             response.sendRedirect("/ShopWeb/usuarios/dadosusuario.jsp?usuario="+idUsuario+"");                    
+          }  
             
       }catch(Exception e){
       
@@ -134,8 +163,12 @@ public class ControllerUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        put(request, response);
-        post(request, response);
+           try {
+               processRequest(request, response);
+           } catch (Exception ex) {
+               Logger.getLogger(ControllerUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
     }
 
     /**
@@ -150,8 +183,12 @@ public class ControllerUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        put(request, response);
-        post(request, response);
+           try {
+               processRequest(request, response);
+           } catch (Exception ex) {
+               Logger.getLogger(ControllerUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+           }
+         
     }
 
     /**
