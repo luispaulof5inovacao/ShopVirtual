@@ -9,9 +9,9 @@
 
 <%
 //      int idUsuario =  Integer.parseInt ( session.getAttribute("usuario") ); 
-//      String temp = (String)session.getAttribute("usuario"); 
+      String categoria = request.getParameter("categoria"); 
       Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
-      Integer idCategoria = Integer.parseInt(request.getParameter("categoria"));
+      Integer idCategoria = Integer.parseInt(request.getParameter("idcategoria"));
       
       Prateleiras prateleiras = new Prateleiras();
       ResultSet _prateleirasDaCategoria = prateleiras.daCategoria( idCategoria  );
@@ -31,7 +31,7 @@
     </head>
     <body>
         <h1>Prateleiras</h1>
-        <h2>Da categoria <% // _categoria.getString("ST_NOME_CAT") %></h2>
+        <h2>Da categoria <%= categoria %></h2>
 <!--         <div>
              <a href="../prateleiras/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar prateleira</a>
         </div>-->
@@ -43,7 +43,7 @@
                 <% if (nmPrateleiras == 0) {%>
                 <tr>
                     <%}%>
-                    <td><a href="../prateleiras/post.jsp?prateleira=<%=  _prateleirasDaCategoria.getInt("ID_PRATELEIRA_PRA") %>&usuario=<%= session.getAttribute("usuario") %>"> <%=_prateleirasDaCategoria.getString("ST_NOME_PRA")%> </a><td> 
+                    <td><a href="../prateleiras/post.jsp?prateleira=<%=  _prateleirasDaCategoria.getInt("ID_PRATELEIRA_PRA") %>&usuario=<%= session.getAttribute("usuario") %>&idCategoria=<%= _prateleirasDaCategoria.getInt("ID_CATEGORIA_CAT") %>"> <%=_prateleirasDaCategoria.getString("ST_NOME_PRA")%> </a><td> 
                         <%   
                              nmPrateleiras++;
                          if (nmPrateleiras == 3) {
@@ -54,7 +54,7 @@
 
                 <%}%>
             </table>
-            <a href='../usuarios/home.jsp'>voltar</a>
+            <a href='../usuarios/categoriasprateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>'>voltar</a>
         </div>
     </body>
 </html>

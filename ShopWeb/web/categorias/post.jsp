@@ -27,6 +27,7 @@
     </head>
     <body>
         <h1>Categoria <%=  _categoria.getString("ST_NOME_CAT") %></h1>
+        <h3>Editar categoria</h3>
         <div>
             <form action="ControllerCategorias" method="post">
                 <label>Nome</label><br>

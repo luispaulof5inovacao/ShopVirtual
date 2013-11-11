@@ -114,6 +114,51 @@ public class Prateleiras {
         return resultado;
 
     }
+       
+   public boolean update(Prateleira prateleira , int idCategoria) throws Exception {
+
+        try {
+
+            Integer contUsuario = 0;
+
+            String query = "UPDATE `prateleiras` "
+                    + "SET `ST_NOME_PRA`='"+prateleira.getNome()+"',\n"+
+                    " WHERE (`ID_PRATELEIRA_PRA`='"+prateleira.getidPrateleira()+"') ,\n"+
+                    " AND   (`ID_CATEGORIA_CAT`='"+idCategoria+"')";
+            
+            bd.execComando( query );
+            bd.fecharConexao();
+
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+
+    }
+   public ResultSet comId( int idPrateleira, int idCategoria) throws Exception {
+
+        try {
+
+            Integer contUsuario = 0;
+
+            String query = "SELECT prateleiras.*,categorias.ST_NOME_CAT\n" +
+                           "from prateleiras\n" +
+                           "LEFT JOIN categorias on (categorias.ID_CATEGORIA_CAT = prateleiras.ID_CATEGORIA_CAT)\n" +
+                           "WHERE prateleiras.ID_PRATELEIRA_PRA = '"+idPrateleira+"' \n" +
+                           "AND prateleiras.ID_CATEGORIA_CAT = '"+ idCategoria +"' "; 
+            
+            ResultSet resultado = bd.execConsulta( query );
+
+           return resultado;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultado;
+
+    }
 
     private String MD5(String senha) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

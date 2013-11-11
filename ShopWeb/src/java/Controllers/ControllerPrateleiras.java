@@ -62,12 +62,13 @@ public class ControllerPrateleiras extends HttpServlet {
         String nomePrateleira = request.getParameter("nome");
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+        int idPrateleira = 0;
         
-       Prateleira prateleira = new Prateleira( nomePrateleira, idCategoria, idUsuario);
+       Prateleira prateleira = new Prateleira( nomePrateleira, idCategoria, idUsuario, idPrateleira);
        Prateleiras daoPrateleiras = new Prateleiras();
 
         if (daoPrateleiras.insert( prateleira, idUsuario )) {
-            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp");
+            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?categoria="+idCategoria+"&usuario="+idUsuario+" ");
         }       
     
     
@@ -75,15 +76,16 @@ public class ControllerPrateleiras extends HttpServlet {
    protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
                    
             /* TODO output your page here. You may use following sample code. */
-        String nomePrateleira = request.getParameter("nome");
+        String nomePrateleira = request.getParameter("nome");        
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+        int idPrateleira = Integer.parseInt(request.getParameter("prateleira"));
         
-       Prateleira prateleira = new Prateleira();
+       Prateleira prateleira = new Prateleira( nomePrateleira , idCategoria, idUsuario , idPrateleira);
        Prateleiras daoPrateleiras = new Prateleiras();
 
-        if (daoPrateleiras.insert( prateleira, idUsuario)) {
-            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp");
+        if (daoPrateleiras.update( prateleira, idCategoria )) {
+            response.sendRedirect("/ShopWeb/prateleiras/post.jsp?prateleira="+idPrateleira+"&usuario="+idUsuario+"");
         }       
     
     
