@@ -42,10 +42,6 @@ public class Usuarios {
                 return false;
             }
 
-//            System.out.println("-->Inserte : "+usuario.getNome());
-//            System.out.println("-->Inserte Email :"+usuario.getEmail());
-//            System.out.println("-->Inserte ssenha: "+usuario.getSenha());
-
             bd.execComando(query);
             bd.fecharConexao();
 

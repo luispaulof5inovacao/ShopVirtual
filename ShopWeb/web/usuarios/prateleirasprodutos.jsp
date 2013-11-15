@@ -30,11 +30,11 @@
         <title>Prateleiras</title>
     </head>
     <body>
-        <h1>Prateleiras</h1>
-        <h2>Da categoria <%= categoria %></h2>
-         <div>
-             <a href="../prateleiras/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar prateleira</a>
-        </div>
+        <h1>Prateleiras de produtos da categoria <%= categoria %></h1>
+        <h2>Qual prateleira esta o produto ?</h2>
+<!--         <div>
+             <a href="../produtos/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar prateleira</a>
+        </div>-->
         <div>
             <table>
                 <%  int nmPrateleiras = 0;
@@ -43,7 +43,7 @@
                 <% if (nmPrateleiras == 0) {%>
                 <tr>
                     <%}%>
-                    <td><a href="../prateleiras/post.jsp?prateleira=<%=  _prateleirasDaCategoria.getInt("ID_PRATELEIRA_PRA") %>&usuario=<%= session.getAttribute("usuario") %>&idCategoria=<%= _prateleirasDaCategoria.getInt("ID_CATEGORIA_CAT") %>"> <%=_prateleirasDaCategoria.getString("ST_NOME_PRA")%> </a><td> 
+                    <td><a href="../usuarios/produtos.jsp?prateleira=<%=  _prateleirasDaCategoria.getInt("ID_PRATELEIRA_PRA") %>&usuario=<%= session.getAttribute("usuario") %>&idCategoria=<%= _prateleirasDaCategoria.getInt("ID_CATEGORIA_CAT") %>"> <%=_prateleirasDaCategoria.getString("ST_NOME_PRA")%> </a><td> 
                         <%   
                              nmPrateleiras++;
                          if (nmPrateleiras == 3) {
@@ -54,7 +54,7 @@
 
                 <%}%>
             </table>
-            <a href='../usuarios/categoriasprateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>'>voltar</a>
+            <a href='../usuarios/categoriasprodutos.jsp?usuario=<%= session.getAttribute("usuario") %>'>voltar</a>
         </div>
     </body>
 </html>

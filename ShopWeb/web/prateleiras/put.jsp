@@ -34,7 +34,8 @@
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>"> 
                 <input type="hidden" name="acao" id="acao" value="put"> 
                 <br>
-                <input type="submit" name="salvar" value="salvar">         
+                <input type="submit" name="salvar" value="salvar"> 
+                <a href='javascript:history.back(1)'>cancelar</a>
 
             </form>
         </div>

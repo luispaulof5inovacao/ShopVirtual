@@ -34,8 +34,8 @@
 
                 <label>Nome</label><br>
                 <input type="text" name="nome" id="nome" value="<%= _prateleiras.getString("ST_NOME_PRA")%>" required><br> 
-                <label for="categoria"> Categoria da prateleira</label><br>                
-                <select name="categoria" id="categoria" required>
+                <label for="novacategoria"> Categoria da prateleira</label><br>                
+                <select name="novacategoria" id="novacategoria" required>
                     <option value="<%= _prateleiras.getInt("ID_CATEGORIA_CAT")%>"><%= _prateleiras.getString("ST_NOME_CAT") %> </option>
                     
                     <% while(_categorias.next()) {%>
@@ -44,6 +44,7 @@
                 </select>
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>"> 
                 <input type="hidden" name="prateleira" id="prateleira" value="<%= idPrateleira %>"> 
+                <input type="hidden" name="categoria" id="categoria" value="<%= idCategoria %>"> 
                 <input type="hidden" name="acao" id="acao" value="post"> 
                 <br>
                 <input type="submit" name="salvar" value="salvar">   

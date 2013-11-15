@@ -21,7 +21,7 @@ public class Produto {
     protected int idPrateleira = 0;
     protected float valor = 0;
 
-    public Produto(String _nomeProduto, float _valorProduto, int _prateleiraProduto, String _descricaoProduto, int _idUsuario){
+    public Produto( String _nomeProduto, float _valorProduto, int _prateleiraProduto, String _descricaoProduto, int _idUsuario ){
         
         this.nome = _nomeProduto;
         this.valor = _valorProduto;
@@ -31,10 +31,6 @@ public class Produto {
 
     }
     
-    public Produto(String nomeProduto, String valorProduto, String prateleiraProduto, String descricaoProduto, String idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }

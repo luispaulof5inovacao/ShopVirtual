@@ -8,8 +8,9 @@
 <%@page import="Models.Prateleiras"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
     Prateleiras prateleiras = new Prateleiras();
-    ResultSet _prateleiras = prateleiras.prateleiras();
+    ResultSet _prateleiras = prateleiras.doUsuario(idUsuario);
 %>
 <!DOCTYPE html>
 <html>
@@ -37,6 +38,7 @@
 
                 <label>Descrição<br> <textarea name="descricao" required></textarea></label>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario")%>">   <br> 
+                <input type="hidden" name="acao" id="acao" value="put">   <br> 
                 <input type="submit" name="salvar">       
             </form>
         </div>

@@ -1,32 +1,34 @@
 <%-- 
-    Document   : prateleiras
-    Created on : 23/10/2013, 09:31:02
+    Document   : produtos
+    Created on : 27/10/2013, 14:04:41
     Author     : LuisPaulo
 --%>
+
 <%@page import="java.sql.ResultSet"%>
+<%@page import="Models.Produtos"%>
 <%@page import="Models.Categorias"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
-//      int idUsuario =  Integer.parseInt ( session.getAttribute("usuario") ); 
-//      String temp = (String)session.getAttribute("usuario"); 
       Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
       Categorias categorias = new Categorias();
       ResultSet _categoriasDoUsuario = categorias.doUsuario( idUsuario  );
+//      _usuario.next();
 %>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Minhas prateleiras</title>
+        <title>Meus produtos</title>
     </head>
     <body>
-        <h1>Minhas prateleiras</h1>
-        <h2>Selecione a categoria da prateleira</h2>
+        <h1>Meus produtos</h1>
+        <h3>Qual categoria do produto ?</h3>
+        
          <div>
-             <a href="../prateleiras/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar prateleira</a>
+             <a href="../produtos/put.jsp?usuario=<%= session.getAttribute("usuario") %> ">Cadastrar produto</a>
         </div>
-        <div>
+                <div>
             <table>
                 <%  int nmCategorias = 0;
                     while (_categoriasDoUsuario.next()) {%> 

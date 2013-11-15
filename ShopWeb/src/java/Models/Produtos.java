@@ -32,16 +32,20 @@ public class Produtos {
                     + "VALUES ('" + produto.getNome() + "','"+produto.getValor()+"','"+produto.getDescricao()+"')";
             bd.execComando( queryProduto );
             
+            ResultSet idProduto = bd.execConsulta("select * from produtos");
+            idProduto.last();
+            
+            int _idProduto = idProduto.getInt("ID_PRODUTO_PRO");
             
             
             String queryProdutoUsuario = "INSERT INTO `produtos_usuario`( ID_USUARIO_USU, ID_PRODUTO_PRO ) "
-                    + "VALUES ('" + produto.getidUsuario()+ "','"+produto.getValor()+"' )";
+                    + "VALUES ('" + produto.getidUsuario()+ "','"+_idProduto+"' )";
             bd.execComando( queryProdutoUsuario );
             
             
             
             String queryProdutoPrateleira = "INSERT INTO `produtos_prateleiras`( ID_PRODUTO_PRO, ID_PRATELEIRA_PRA ) "
-                    + "VALUES ('" + produto.getNome() + "','"+produto.getidPrateleira()+"' )";
+                    + "VALUES ('" + _idProduto + "','"+produto.getidPrateleira()+"' )";
             bd.execComando( queryProdutoPrateleira );
             
             
@@ -76,13 +80,18 @@ public class Produtos {
 
     }
     
-    public ResultSet doUsuario ( int idUsuario ) throws Exception {
+    public ResultSet doUsuario ( int idUsuario, int idPrateleira ) throws Exception {
 
         try {
 
             Integer contUsuario = 0;
 
-            String query = "Select * from produtos where  ";
+            String query = "SELECT produtos_usuario.ID_USUARIO_USU,produtos.*\n" +
+                             "from produtos_usuario\n" +
+                            "LEFT JOIN produtos on (produtos.ID_PRODUTO_PRO = produtos_usuario.ID_PRODUTO_PRO)\n" +
+                            "LEFT JOIN produtos_prateleiras on (produtos_prateleiras.ID_PRODUTO_PRO = produtos.ID_PRODUTO_PRO)\n" +
+                            "where produtos_usuario.ID_USUARIO_USU = '"+idUsuario+"'\n" +
+                            "and produtos_prateleiras.ID_PRATELEIRA_PRA = '"+idPrateleira+"' ";
             
             ResultSet resultado = bd.execConsulta( query );
             

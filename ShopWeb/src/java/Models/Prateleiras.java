@@ -115,16 +115,13 @@ public class Prateleiras {
 
     }
        
-   public boolean update(Prateleira prateleira , int idCategoria) throws Exception {
+   public boolean update(Prateleira prateleira , int idCategoria, int novaCategoria ) throws Exception {
 
         try {
 
             Integer contUsuario = 0;
 
-            String query = "UPDATE `prateleiras` "
-                    + "SET `ST_NOME_PRA`='"+prateleira.getNome()+"',\n"+
-                    " WHERE (`ID_PRATELEIRA_PRA`='"+prateleira.getidPrateleira()+"') ,\n"+
-                    " AND   (`ID_CATEGORIA_CAT`='"+idCategoria+"')";
+            String query = "UPDATE `prateleiras` SET ST_NOME_PRA = '"+prateleira.getNome()+"', ID_CATEGORIA_CAT = "+novaCategoria+"  WHERE ( ID_PRATELEIRA_PRA = "+prateleira.getidPrateleira()+")AND( ID_CATEGORIA_CAT = "+idCategoria+") ";
             
             bd.execComando( query );
             bd.fecharConexao();

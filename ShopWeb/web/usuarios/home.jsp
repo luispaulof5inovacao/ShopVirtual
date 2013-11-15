@@ -23,7 +23,7 @@
             <a href="../usuarios/categoriasprateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas prateleiras</a>
         </div>
         <div>
-            <a href="../usuarios/produtos.jsp?usuario=<%= session.getAttribute("usuario") %>">Meus produtos</a>
+            <a href="../usuarios/categoriasprodutos.jsp?usuario=<%= session.getAttribute("usuario") %>">Meus produtos</a>
         </div>
         <div>
             <a href="../usuarios/dadosusuario.jsp?usuario=<%= session.getAttribute("usuario") %>">Informações pessoais</a>

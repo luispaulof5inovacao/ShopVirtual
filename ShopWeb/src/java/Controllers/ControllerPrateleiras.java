@@ -10,6 +10,7 @@ import Models.Prateleira;
 import Models.Prateleiras;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -66,9 +67,13 @@ public class ControllerPrateleiras extends HttpServlet {
         
        Prateleira prateleira = new Prateleira( nomePrateleira, idCategoria, idUsuario, idPrateleira);
        Prateleiras daoPrateleiras = new Prateleiras();
+       
+       Categorias categorias = new Categorias();
+       ResultSet _categoria = categorias.categoria(idUsuario, idCategoria);
+       _categoria.next();
 
         if (daoPrateleiras.insert( prateleira, idUsuario )) {
-            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?categoria="+idCategoria+"&usuario="+idUsuario+" ");
+            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" ");
         }       
     
     
@@ -76,16 +81,21 @@ public class ControllerPrateleiras extends HttpServlet {
    protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
                    
             /* TODO output your page here. You may use following sample code. */
-        String nomePrateleira = request.getParameter("nome");        
+        String nomePrateleira = request.getParameter("nome").trim();        
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
         int idPrateleira = Integer.parseInt(request.getParameter("prateleira"));
+        int novaCategoria = Integer.parseInt(request.getParameter("novacategoria"));
         
        Prateleira prateleira = new Prateleira( nomePrateleira , idCategoria, idUsuario , idPrateleira);
        Prateleiras daoPrateleiras = new Prateleiras();
+       
+              Categorias categorias = new Categorias();
+       ResultSet _categoria = categorias.categoria(idUsuario, idCategoria);
+       _categoria.next();
 
-        if (daoPrateleiras.update( prateleira, idCategoria )) {
-            response.sendRedirect("/ShopWeb/prateleiras/post.jsp?prateleira="+idPrateleira+"&usuario="+idUsuario+"");
+        if (daoPrateleiras.update( prateleira, idCategoria, novaCategoria )) {
+            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" ");
         }       
     
     

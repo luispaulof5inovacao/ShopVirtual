@@ -11,9 +11,15 @@
 
 <%
       int idUsuario= Integer.parseInt( request.getParameter("usuario") );
+      String sexoUsuario = "";
       Usuarios usuario = new Usuarios();
       ResultSet _usuario = usuario.comId( idUsuario );
       _usuario.next();
+      
+      if( _usuario.getString("ST_SEXO_USU").equals("1"))
+          sexoUsuario = "masculino";
+      else
+         sexoUsuario = "feminino"; 
 %>
 <!DOCTYPE html>
 <html>
@@ -37,7 +43,8 @@
                 <input type="hidden" name="acao" id="acao" value="post"> 
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>"> 
                 <label for="sexo"> Sexo </label><br>
-                <select name="sexo" id="instrumento">
+                <select name="sexo" id="sexo" required>
+                    <option value="<%=_usuario.getString("ST_SEXO_USU") %>"> <%= sexoUsuario %></option>
                     <option value="1">masculino</option>
                     <option value="2">feminino</option>
                 </select><br><br>
