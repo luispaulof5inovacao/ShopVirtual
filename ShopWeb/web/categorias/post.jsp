@@ -23,6 +23,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel=stylesheet type="text/css" href="../css/main.css"> 
         <title>Categorias</title>
     </head>
     <body>
@@ -35,7 +36,7 @@
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">   
                 <input type="hidden" name="categoria" id="categoria" value="<%= idCategoria %>">   
                 <input type="hidden" name="acao" id="post" value="post">    
-                <input type="submit" name="salvar" value="salvar">  
+                <input type="submit" name="salvar" value="salvar" >  
                 <a href='javascript:history.back(1)'>cancelar</a>
             </form>
         </div>

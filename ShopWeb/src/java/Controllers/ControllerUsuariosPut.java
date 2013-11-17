@@ -52,28 +52,17 @@ public class ControllerUsuariosPut extends HttpServlet {
           usuario.setNome( nome );
           
          
-          if( !daoUsuarios.insert( usuario )){          
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Erro de cadastro</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Email já esta sendo utilizado.</h1>");
-            out.println("</body>");
-            out.println("</html>");  
-          }else{
-              
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Sucesso</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cadastro efetuado com sucesso. </h1>");
-            out.println("</body>");
-            out.println("</html>");  
-            
+          if( !daoUsuarios.insert( usuario )){    
+              out.println("<script type='text/javascript'> "
+                      + "alert('Email informado já esta sendo utilizado!');"
+                      + " location.href='index.html'; "
+                      + " </script>");
+
+          }else{              
+            out.println("<script type='text/javascript'> "
+                    + "alert('Cadastro efetuado com sucesso!')"
+                    + "location.href='login.jsp'; "
+                    + "</script>");            
           }
 
       }catch(Exception e){

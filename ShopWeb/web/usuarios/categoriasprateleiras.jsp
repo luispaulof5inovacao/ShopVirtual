@@ -18,6 +18,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel=stylesheet type="text/css" href="../css/main.css"> 
         <title>Minhas prateleiras</title>
     </head>
     <body>
@@ -34,7 +35,7 @@
                 <% if (nmCategorias == 0) {%>
                 <tr>
                     <%}%>
-                    <td><a href="../usuarios/prateleirasprodutos.jsp?idcategoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT") %>&usuario=<%= session.getAttribute("usuario") %>&categoria=<%= _categoriasDoUsuario.getString("ST_NOME_CAT")%>"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> </a><td> 
+                    <td><a href="../usuarios/prateleiras.jsp?idcategoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT") %>&usuario=<%= session.getAttribute("usuario") %>&categoria=<%= _categoriasDoUsuario.getString("ST_NOME_CAT")%>"> <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> </a><td> 
 
                         <%   
                              nmCategorias++;

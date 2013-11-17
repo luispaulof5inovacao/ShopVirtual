@@ -71,7 +71,10 @@ public class ControllerProdutos extends HttpServlet {
 
             
         if ( daoProdutos.insert(produto) ) {
-            response.sendRedirect("/ShopWeb/usuarios/categoriasprodutos.jsp?usuario="+idUsuario+"");
+                   out.println("<script type='text/javascript'> "
+                      + "alert('Produto cadastrado com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/categoriasprodutos.jsp?usuario="+idUsuario+"'; "
+                      + " </script>");                   
         }   
 
 

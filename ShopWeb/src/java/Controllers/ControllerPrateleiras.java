@@ -60,6 +60,7 @@ public class ControllerPrateleiras extends HttpServlet {
    protected void put( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
                    
             /* TODO output your page here. You may use following sample code. */
+       PrintWriter out = response.getWriter();
         String nomePrateleira = request.getParameter("nome");
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
@@ -73,7 +74,10 @@ public class ControllerPrateleiras extends HttpServlet {
        _categoria.next();
 
         if (daoPrateleiras.insert( prateleira, idUsuario )) {
-            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" ");
+                       out.println("<script type='text/javascript'> "
+                      + "alert('Prateleira cadastrada com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" '; "
+                      + " </script>"); 
         }       
     
     
@@ -81,6 +85,7 @@ public class ControllerPrateleiras extends HttpServlet {
    protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
                    
             /* TODO output your page here. You may use following sample code. */
+       PrintWriter out = response.getWriter();
         String nomePrateleira = request.getParameter("nome").trim();        
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
@@ -95,7 +100,10 @@ public class ControllerPrateleiras extends HttpServlet {
        _categoria.next();
 
         if (daoPrateleiras.update( prateleira, idCategoria, novaCategoria )) {
-            response.sendRedirect("/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" ");
+                   out.println("<script type='text/javascript'> "
+                      + "alert('Prateleira alterada com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/prateleiras.jsp?idcategoria="+idCategoria+"&usuario="+idUsuario+"&categoria="+_categoria.getString("ST_NOME_CAT")+" '; "
+                      + " </script>");
         }       
     
     

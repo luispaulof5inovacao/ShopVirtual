@@ -41,14 +41,12 @@ public class ControllerCategorias extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
            String acao = request.getParameter("acao");
-
            
            if( acao.equals("post") )
                this.post( request , response );
            
            if( acao.equals("put") )
-               this.put( request , response );
-               
+               this.put( request , response );              
 
            
         } finally {            
@@ -56,7 +54,9 @@ public class ControllerCategorias extends HttpServlet {
         }
     }
     
-    protected void put( HttpServletRequest request, HttpServletResponse response ) throws Exception{        
+    protected void put( HttpServletRequest request, HttpServletResponse response ) throws Exception{  
+        
+        PrintWriter out = response.getWriter();
                    
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         String nomeCategoria = request.getParameter("nome");
@@ -67,13 +67,19 @@ public class ControllerCategorias extends HttpServlet {
         Categorias daoCategoria = new Categorias();
 
         if (daoCategoria.insert(categoria, idUsuario)) {
-            response.sendRedirect("/ShopWeb/usuarios/categorias.jsp");
+            
+                   out.println("<script type='text/javascript'> "
+                      + "alert('Categoria cadastrada com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/categorias.jsp'; "
+                      + " </script>");  
+
         }       
     
     
     }
     protected void post( HttpServletRequest request, HttpServletResponse response ) throws Exception{
     
+        PrintWriter out = response.getWriter();
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
         
@@ -83,7 +89,10 @@ public class ControllerCategorias extends HttpServlet {
         Categorias daoCategoria = new Categorias();
 
         if (daoCategoria.post( categoria )) {
-            response.sendRedirect("/ShopWeb/usuarios/categorias.jsp");
+                  out.println("<script type='text/javascript'> "
+                      + "alert('Categoria alterada com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/categorias.jsp'; "
+                      + " </script>");              
         }  
     
     

@@ -48,74 +48,15 @@ public class ControllerUsuarios extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
            String acao = request.getParameter("acao");
-
            
            if( acao.equals("post") )
-               this.post( request , response );
-           
-           if( acao.equals("put") )
-               this.put( request , response );
-               
-
+               this.post( request , response );          
            
         } finally {            
             out.close();
         }
     }
        
-    protected void put(HttpServletRequest request, HttpServletResponse response)
-                   throws ServletException, IOException {
-        
-      try{  
-          
-          response.setContentType("text/html;charset=UTF-8");
-          PrintWriter out = response.getWriter();
-
-          String email = request.getParameter("email");
-          String nome = request.getParameter("nome");
-          String senha = request.getParameter("senha");
-          String confimacaosenha = request.getParameter("confimacaosenha");
-
-          Usuario usuario = new Usuario();
-          Usuarios daoUsuarios = new Usuarios();
-          
-          usuario.setEmail( email );
-          usuario.setSenha( senha );
-          usuario.setNome( nome );
-          
-         
-          if( !daoUsuarios.insert( usuario )){          
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Erro de cadastro</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Email já esta sendo utilizado.</h1>");
-            out.println("</body>");
-            out.println("</html>");  
-          }else{
-              
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Sucesso</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cadastro efetuado com sucesso. </h1>");
-            out.println("</body>");
-            out.println("</html>");  
-            
-          }
-          
-          
-          
-            
-      }catch(Exception e){
-      
-      }
-    
-    }
     protected void post(HttpServletRequest request, HttpServletResponse response)
                    throws ServletException, IOException {
         
@@ -133,15 +74,15 @@ public class ControllerUsuarios extends HttpServlet {
 
           Usuario usuario = new Usuario( email, sexo, nome, senha, flFornecedor, idUsuario  );
           Usuarios daoUsuarios = new Usuarios();
-          
-//          usuario.setEmail( email );
-//          usuario.setSenha( senha );
-//          usuario.setNome( nome );
-//          usuario.setSexo(sexo );
-          
+                    
          
-          if( daoUsuarios.update( usuario )){ 
-             response.sendRedirect("/ShopWeb/usuarios/dadosusuario.jsp?usuario="+idUsuario+"");                    
+          if( daoUsuarios.update( usuario )){
+              
+                      out.println("<script type='text/javascript'> "
+                      + "alert('Cadastro alterado com sucesso!');"
+                      + " location.href='/ShopWeb/usuarios/dadosusuario.jsp?usuario="+idUsuario+" '; "
+                      + " </script>");   
+                      
           }  
             
       }catch(Exception e){

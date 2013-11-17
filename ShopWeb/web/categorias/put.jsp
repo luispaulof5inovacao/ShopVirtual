@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel=stylesheet type="text/css" href="../css/main.css"> 
         <title>Categorias</title>
     </head>
     <body>
@@ -18,10 +19,10 @@
         <div>
             <form action="ControllerCategorias" method="post">
                 <label>Nome</label><br>
-                <input type="text" name="nome" id="nome" required><br>  
+                <input type="text" name="nome" id="nome"  placeholder="Prateleira" required><br>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">    
-                <input type="hidden" name="acao" id="put" value="put">    
-                <input type="submit" name="salvar">    
+                <input type="hidden" name="acao" id="put" value="put"><br>    
+                <input type="submit" name="salvar" value="Cadastrar">    
                <a href='javascript:history.back(1)'>cancelar</a>
             </form>
         </div>

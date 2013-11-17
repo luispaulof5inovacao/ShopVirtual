@@ -9,4 +9,539 @@
 root { 
     display: block;
 }
+a:link, a:visited {
+    text-decoration: none
+}
+a:hover {
+    text-decoration: underline;
+    color: #f00
+}
+a:active {
+    text-decoration: none
+}
+body {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+color: #000;
+font-family: "Proxima Nova", "Helvetica Neue", helvetica, arial, sans-serif;
+font-size: 14px;
+line-height: 1.2em;
+margin: 0;
+padding: 0 1em 50px;
+}
+body {
+padding-left: 2em;
+padding-right: 2em;
+}
 
+html, body {
+overflow-x: hidden;
+width: 100%;
+}
+.content {
+margin: 0 auto;
+max-width: 1000px;
+width: 100%;
+}
+
+#top {
+margin-top: 20px;
+}
+#top {
+zoom: 1;
+border-bottom: 1px solid #ded7c8;
+padding-bottom: 10px;
+position: relative;
+}
+#top .logo {
+background: url(http://www.omadalena.com.br/app/config/759/html/images/categorias.png) no-repeat center top;
+background-size: 113px 32px;
+display: inline-block;
+height: 0;
+margin-top: 10px;
+overflow: hidden;
+position: relative;
+padding: 32px 0 0;
+width: 113px;
+z-index: 100;
+}
+#top .logo {
+background-size: 194px 55px;
+margin-left: 20px;
+padding: 71px 0 0;
+width: 194px;
+}
+#top nav {
+position: absolute;
+display: inline-block;
+right: 0;
+top: -5px;
+}
+#top nav {
+display: block;
+list-style-type: none;
+}
+#top .nav-features {
+display: inline-block;
+}
+#top nav li {
+line-height: 1.1em;
+margin-right: 30px;
+width: auto;
+}
+#top li {
+display: inline-block;
+text-align: center;
+vertical-align: top;
+width: 45%;
+}
+#top li a {
+font-size: 16px;
+line-height: 1.25em;
+text-decoration: none;
+}
+a {
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+margin: 0;
+padding: 0;
+}
+#top li a strong {
+text-decoration: underline;
+}
+#top nav .nav-log-in {
+margin-right: 0;
+position: relative;
+top: 0;
+}
+#top .nav-log-in {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+position: absolute;
+right: 0;
+top: 10px;
+width: auto;
+}
+#top nav ul {
+border: none;
+margin: 35px 0 0;
+padding: 0;
+}
+#top ul {
+border-top: 1px solid #ded7c8;
+margin-top: 10px;
+padding-top: 10px;
+text-align: center;
+}
+nav ul {
+list-style: none;
+}
+#top nav li sub {
+font-size: 14px;
+margin: 0;
+}
+#top li a sub {
+color: black;
+display: block;
+font-size: 14px;
+font-weight: normal;
+line-height: 1em;
+margin-top: 5px;
+}
+#top .nav-log-in a {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+background-color: #06C;
+border-bottom: 2px solid #105296;
+color: #fff;
+display: block;
+font-size: 14px;
+font-weight: normal;
+margin: 0 0 0 10px;
+padding: 8px 14px 9px 14px;
+}
+body.index section.welcome {
+-webkit-animation: fade-in-up 0.75s both;
+-moz-animation: fade-in-up 0.75s both;
+-ms-animation: fade-in-up 0.75s both;
+-o-animation: fade-in-up 0.75s both;
+animation: fade-in-up 0.75s both;
+margin: 2em auto 0;
+width: 100%;
+}
+body.index section.welcome h1 {
+text-align: center;
+}
+h1{
+font-size: 48px;
+letter-spacing: -1px;
+}
+h1{
+/*font-size: 22px;*/
+line-height: 1em;
+margin-bottom: .2em;
+}
+body.index div.hero {
+zoom: 1;
+margin-top: 3em;
+height: 100%;
+position: relative;
+}
+body.index div.signup {
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+-o-border-radius: 20px;
+border-radius: 20px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+border: 5px solid black;
+float: right;
+padding: 2em 2.5em 2.5em;
+max-width: 400px;
+width: 55%;
+}
+body.index div.signup h2 {
+margin-bottom: .25em;
+}
+body.index div.signup h2 {
+color: #cc0000;
+font-weight: bold;
+}
+body.index div.signup h2, body.home div.signup h3 {
+text-align: center;
+}
+h2 {
+font-size: 24px;
+}
+h2 {
+color: #aa9c84;
+font-size: 18px;
+font-weight: normal;
+line-height: 1.1em;
+}
+body.index div.signup h3 {
+font-size: 16px;
+font-weight: normal;
+margin: 0 auto 1em;
+width: 75%;
+}
+body.index div.signup h3 {
+font-size: 14px;
+margin-bottom: .75em;
+}
+body.index div.signup h2, body.home div.signup h3 {
+text-align: center;
+}
+body.index div.signup input {
+margin-bottom: 1em;
+width: 100%;
+}
+input[type="text"], input[type="password"],input[type="email"] {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+-ms-transition: all 0.2s ease;
+transition: all 0.2s ease;
+background-color: white;
+border: 1px solid #CCC;
+border-top: 1px solid #999;
+font-size: 14px;
+padding: 8px 5px;
+}
+body.index div.signup input {
+margin-bottom: 1em;
+width: 100%;
+}
+input[type="submit"] {
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+-o-border-radius: 8px;
+border-radius: 8px;
+background: #8fc857;
+background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
+background: -moz-linear-gradient(top, #8fc857, #5c9425);
+border: 1px solid #5c9425;
+color: #fff;
+font-family: "Proxima Nova", "Lucida Grand", Helvetica, sans-serif;
+font-size: 16px;
+font-weight: bold;
+margin: 0;
+padding: 10px 30px;
+text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+body.index div.joy {
+/*bottom: 0;*/
+display: inline-block;
+/*position: absolute;*/
+left: 15%;
+max-width: 100%;
+width: 48%;
+}
+body.index div.joy {
+margin: 0 auto;
+max-width: 450px;
+}
+body.index div.joy blockquote {
+bottom: 95%;
+font-size: 16px;
+line-height: 1.25em;
+margin-left: -12%;
+max-width: 260px;
+position: absolute;
+width: 85%;
+}
+body.index div.joy blockquote {
+margin: 0 auto;
+position: relative;
+width: 80%;
+}
+blockquote, q {
+quotes: none;
+}
+body.index div.joy blockquote small {
+color: #666;
+font-size: 14px;
+display: block;
+margin-top: 1em;
+}
+body.index div.joy figure {
+max-width: 377px;
+width: 100%;
+}
+body.index div.joy figure {
+margin: 2em auto -5px;
+max-width: 377px;
+width: 75%;
+}
+body.index div.joy figure img {
+margin: 0;
+}
+body.index div.joy img {
+height: auto;
+width: 100%;
+}
+body.index section.recommendation {
+padding: 3em 1em;
+}
+body.index section.recommendation {
+-webkit-animation: fade-in-up 0.75s both;
+-moz-animation: fade-in-up 0.75s both;
+-ms-animation: fade-in-up 0.75s both;
+-o-animation: fade-in-up 0.75s both;
+animation: fade-in-up 0.75s both;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+border-top: 1px solid #ded7c8;
+padding: 2em 1em;
+text-align: center;
+}
+body.index section.recommendation h3 {
+font-size: 42px;
+margin-bottom: .5em;
+}
+body.index section.recommendation h4 {
+font-size: 36px;
+}
+footer[role="contentinfo"] {
+border-top: 1px solid #ded7c8;
+padding-top: 20px;
+text-align: center;
+width: 100%;
+}
+footer[role="contentinfo"] ul, footer[role="contentinfo"] li, footer[role="contentinfo"] p {
+display: inline-block;
+}
+footer[role="contentinfo"] ul {
+margin-bottom: 20px;
+}
+footer[role="contentinfo"] .footer-email {
+font-weight: bold;
+}
+
+footer[role="contentinfo"] li {
+display: inline-block;
+margin: 0 10px 0 0;
+}
+body.users div.container, body.login div.container {
+height: auto;
+min-height: 100%;
+position: relative;
+padding: 0 30px;
+}
+user agent stylesheetdiv {
+display: block;
+}
+Inherited from body.login.categorias
+body.login {
+text-align: center;
+}
+body {
+font-family: helvetica, arial, sans-serif !important;
+}
+body.login {
+padding: 0;
+text-align: center;
+border: none;
+background: #eee url("https://launchpad-asset2.37signals.com/images/login_sprites.png?1384474227") repeat-x left -938px !important;
+}
+html, body.users, body.login {
+height: 100%;
+padding: 0;
+}
+body {
+font-family: helvetica, arial, sans-serif !important;
+margin: 0;
+padding: 0 30px;
+}
+body.users div.container, body.login div.container {
+height: auto;
+min-height: 100%;
+position: relative;
+padding: 0 30px;
+}
+user agent stylesheetdiv {
+display: block;
+}
+body.login div#header {
+text-align: right;
+height: 40px;
+border: none;
+padding: 0;
+margin: 0;
+}
+div#header {
+font-size: 12px;
+text-align: right;
+height: 40px;
+padding: 15px 30px;
+margin: 0 -30px;
+}
+body.login div#header h1 {
+text-align: left;
+margin: 10px 30px 0 0;
+padding: 0;
+text-indent: -9999px;
+width: 116px;
+float: right;
+}
+body.login.categorias div#login_content {
+/*background: url("https://launchpad-asset1.37signals.com/images/login_BC.png?1384474227") no-repeat 180px 42px;*/
+background: url("http://www.omadalena.com.br/app/config/759/html/images/categorias.png") no-repeat 100px 12px;
+}
+body.login div#login_content {
+margin: 130px auto 20px auto;
+text-align: center;
+width: 100%;
+max-width: 988px;
+/*background: url("https://launchpad-asset2.37signals.com/images/login_sprites.png?1384474227") no-repeat left 25px;*/
+}
+body.login.bcx div#login_content_inner, body.login.categorias div#login_content_inner, 
+body.login.highrise div#login_content_inner, body.login.backpack div#login_content_inner, body.login.campfire div#login_content_inner {
+background: none !important;
+}
+body.login div#login_content_inner {
+text-align: center;
+width: 100%;
+max-width: 988px;
+/*background: url("https://launchpad-asset2.37signals.com/images/login_sprites.png?1384474227") no-repeat right 25px;*/
+padding-bottom: 20px;
+}
+body.login div#login_content[data-state=username] div.dialog_contents {
+padding-top: 0;
+}
+body.login div.dialog_contents {
+padding: 6px 0;
+}
+user agent stylesheetdiv {
+display: block;
+}
+Inherited from div#login_content_inner
+body.login div#login_content_inner {
+text-align: center;
+}
+body:first-of-type.login div.login_dialog {
+border: none;
+}
+body.login div.login_dialog {
+width: 210px;
+margin: 0 auto;
+background: #fff;
+padding: 10px 39px 19px;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+border: 1px solid #aaa;
+-moz-box-shadow: 0 0 6px #999;
+-webkit-box-shadow: 0 0 6px #999;
+box-shadow: 0 0 6px #999;
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999')";
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+}
+.clearfix {
+display: block;
+}
+/*div {
+display: block;
+}*/
+Inherited from div#login_content_inner
+body.login div#login_content_inner {
+text-align: center;
+}
+body.login div.login_dialog h1 {
+font-size: 16px;
+font-weight: normal;
+line-height: 19px;
+margin: 13px 0 15px;
+}
+body.login div.login_dialog h1 strong {
+display: block;
+font-size: 18px;
+}
+user agent stylesheetstrong, b {
+font-weight: bold;
+}
+div#other_products {
+position: absolute;
+bottom: 0;
+left: 0;
+background: #e5e5e5;
+text-align: center;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+div#other_products div {
+font-size: 12px;
+line-height: 15px;
+color: #ccc;
+}
+div#other_products ul, div#other_products li {
+display: inline;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+div#other_products li {
+display: inline;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+div#other_products div a {
+text-decoration: none;
+color: #444;
+}

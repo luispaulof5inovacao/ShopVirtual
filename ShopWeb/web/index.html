@@ -7,40 +7,104 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel=stylesheet type="text/css" href="css/main.css"> 
     </head>
-    <body>
+    <body class="index">
 
-        <div>
-            <form action="ControllerAuth" method="post">
+        <div class="content">
+            <header role="banner" id="top">
+                <a href="/" class="logo">Basecamp</a>
 
-                <label>Email</label><br>
-                <input type="email" name="email" id="email" required><br>  
+                <nav role="navigation">
+                    <ul>
 
-                <label>Senha</label><br>
-                <input type="password" name="senha" id="senha" required><br>  
+                        <li class="nav-features">
+                            <a href="#">
+                                <strong>Categorias</strong>
+                                <sub>Produtos organizados<br>por categorias</sub>
+                            </a>
+                        </li>
 
-                <input type="submit" name="salvar">         
+                        <li class="nav-pricing">
+                            <a href="#">
+                                <strong>Prateleiras</strong>
+                                <sub>Dentro das categorias,<br> encontramos as prateleiras</span></sub>
+                            </a>
+                        </li>
+                        <li class="nav-signup">
+                            <a href="#">
+                                <strong>Produtos</strong>
+                                <sub>Encontre seus produtos na praleira correta</sub>
+                            </a>
+                        </li>
+                        <li class="nav-log-in"><a href="login.jsp">Login</a></li>
+                    </ul>
+                </nav>
 
-            </form>
 
-            <br><span>Novo por aqui ?</span><br><br>
+            </header>
 
-            <form action="ControllerUsuariosPut" method="post">
+            <section class="welcome">
+                <h1 class="pitch" style="">
+                    Toda semana <span id="signups">6 789 490</span> pessoas procuram produtos para comprar pela internet.
+                    <strong>Divulge seus produtos aqui.</strong>
+                </h1>
+                <div class="hero">
+                    <div class="signup">
+                        <section class="signup-form">
 
-                <label>Nome completo</label><br>
-                <input type="text" name="nome" id="nome" required><br>    
 
-                <label>Email</label><br>
-                <input type="email" name="email" id="email" required><br>  
+                            <br><h2>Novo por aqui ?</h2>
+                            <h3>Cadastre sua loja agora, leva menos de 1 minuto.</h3>
 
-                <label>Senha</label><br>
-                <input type="password" name="senha" id="senha" required><br>  
+                            <form action="ControllerUsuariosPut" method="post">
 
-                <label>Confirmar senha</label><br>
-                <input type="password" name="confimacaosenha" id="confimacaosenha" required><br>  
+                                <label>Nome completo </label><br>
+                                <input type="text" name="nome" id="nome" placeholder="Nome do proprietário" required><br>    
 
-                <input type="submit" name="salvar">                
-            </form>
+                                <label>Email</label><br>
+                                <input type="email" name="email" id="email" placeholder="Email" required><br>  
+
+                                <label>Senha</label><br>
+                                <input type="password" name="senha" id="senha" placeholder="Senha" required><br>  
+
+                                <label>Confirmar senha</label><br>
+                                <input type="password" name="confimacaosenha" id="confimacaosenha" placeholder="Confirmar senha" required><br>  
+
+                                <input type="submit" name="salvar" value="Cadastrar">                
+                            </form>
+                        </section>
+                    </div>
+                </div>
+                <div class="joy" style="margin-left: 101px;">
+                    <blockquote>
+                        Depois que entrei no "categorias" minhas vendas triplicaram, simplesmente sensacional.
+                        <small>— Viviane, <a href="#" target="_new">dona da MorenaRosa</a></small>
+                    </blockquote>
+
+                    <figure><img src="https://basecamp.com/assets/home/joy-312d95a2eba641457382f249d4bd74ca.png"></figure>
+                </div>
+
+            </section>
+            <section class="recommendation">
+                <h3>97% dos lojistas recomendam Categorias.</h3>
+                <h4>Não fique de fora </h4>
+            </section>
+            <footer role="contentinfo">
+<!--                <ul>
+                    <li class="footer-email"><a href="#" data-behavior="open" data-modal="newsletter">Email newsletter</a></li>
+                    <li class="footer-help"><a href="/help">Help</a> </li>
+                    <li class="footer-mobile"><a href="/mobile">Mobile</a></li>
+                    <li class="footer-extras"><a href="/extras">Integrations</a></li>
+                    <li><a href="http://37signals.com/security">Security</a></li>
+                    <li><a href="http://37signals.com/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="http://help.37signals.com/bcx/tickets/new">Contact</a></li>
+                </ul>-->
+
+                <p class="copyright">Copyright ©2013-2013 Luis Paulo.</p>
+                <p>Trabalho PW.</p>
+            </footer>
 
         </div>
 

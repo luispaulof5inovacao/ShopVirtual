@@ -62,23 +62,15 @@ public class ControllerAuth extends HttpServlet {
                 session.setAttribute("usuario", dadosUsuario.getInt( "ID_USUARIO_USU" ) );
                 session.setAttribute("fornecedor", dadosUsuario.getInt( "FL_FORNECEDOR_USU" ) );
 
-                System.out.println("---->IDUSUARIO" + session.getAttribute("usuario") );
                 response.sendRedirect("/ShopWeb/usuarios/home.jsp");  
                 
-            }else{
-            
+            }else{            
                 session.invalidate();
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Erro login</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Verifique o login ou senha.</h1>");
-                out.println("</body>");
-                out.println("</html>");     
+                out.println("<script type='text/javascript'> "
+                      + "alert('Verifique seu email ou senha!');"
+                      + " location.href='login.jsp'; "
+                      + " </script>");   
             }
-//            response.sendRedirect("/ShopWeb/");
 
             
         } catch (Exception e) {
