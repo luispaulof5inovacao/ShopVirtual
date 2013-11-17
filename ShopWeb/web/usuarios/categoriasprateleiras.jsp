@@ -5,6 +5,7 @@
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Categorias"%>
+ <%@include file="../header.html" %>
 <%
 //      int idUsuario =  Integer.parseInt ( session.getAttribute("usuario") ); 
 //      String temp = (String)session.getAttribute("usuario"); 
@@ -19,6 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
+        <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Minhas prateleiras</title>
     </head>
     <body>

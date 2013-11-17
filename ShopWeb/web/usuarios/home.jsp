@@ -4,30 +4,21 @@
       String usuarioEmail = (String) session.getAttribute("email");
       
  %>
- 
+ <%@include file="../header.html" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
+        <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Home</title>
     </head>
     <body>
-        <h1>Olá! <%= usuarioNome %></h1><br>
-        <h1>Seu email de cadastro é! <%= usuarioEmail %></h1><br>
-        
-        <div>
-            <a href="../usuarios/categorias.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas categorias</a>
-        </div>
-        <div>
-            <a href="../usuarios/categoriasprateleiras.jsp?usuario=<%= session.getAttribute("usuario") %>">Minhas prateleiras</a>
-        </div>
-        <div>
-            <a href="../usuarios/categoriasprodutos.jsp?usuario=<%= session.getAttribute("usuario") %>">Meus produtos</a>
-        </div>
-        <div>
-            <a href="../usuarios/dadosusuario.jsp?usuario=<%= session.getAttribute("usuario") %>">Informações pessoais</a>
-        </div>
+        <br>
+        <br>
+        <h3>Olá! <%= usuarioNome %></h3><br>
+        <h3>Seu email de cadastro é! <%= usuarioEmail %></h3><br>
+
     </body>
 </html>

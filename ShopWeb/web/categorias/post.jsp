@@ -9,6 +9,7 @@
 <%@page import="Models.Categorias"%>
 <%@page import="Controllers.ControllerCategorias"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+ <%@include file="../header.html" %>
 
 <%
       int idUsuario = Integer.parseInt( request.getParameter("usuario") );      
@@ -24,6 +25,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
+        <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Categorias</title>
     </head>
     <body>

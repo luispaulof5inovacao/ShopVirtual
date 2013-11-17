@@ -7,6 +7,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Produtos"%>
 <%@page import="Models.Categorias"%>
+ <%@include file="../header.html" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -20,6 +21,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
+        <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Meus produtos</title>
     </head>
     <body>

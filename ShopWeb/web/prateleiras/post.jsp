@@ -6,6 +6,7 @@
 <%@page import="Models.Prateleiras"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Categorias"%>
+ <%@include file="../header.html" %>
 <%
       Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
       Integer idPrateleira =  Integer.parseInt(request.getParameter("prateleira"));
@@ -25,6 +26,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
+        <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Prateleiras</title>
     </head>
     <body>
