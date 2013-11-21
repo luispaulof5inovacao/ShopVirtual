@@ -25,11 +25,11 @@
     </head>
     <body>
         <div class="conteudo"> 
-            <h1>Minhas prateleiras</h1>            
+            <h1>Selecione a categoria da prateleira</h1>            
             <div class="conteudonovo-item">
                 <a class="novo-item" href="../prateleiras/put.jsp?usuario=<%= session.getAttribute("usuario")%> ">Cadastrar prateleira</a>
             </div><br><br>
-            <h2>Selecione a categoria da prateleira</h2>
+             
             <div class="workspace" id="workspace" >
                 <div class="container flat_container">
                     <div class="panel home_tab project_index  no_nav">
@@ -44,11 +44,11 @@
                                     <%}%>
                                     <article class="cardprateleiras">
                                         <a class="project_card" href="../usuarios/prateleiras.jsp?idcategoria=<%=  _categoriasDoUsuario.getInt("ID_CATEGORIA_CAT")%>&usuario=<%= session.getAttribute("usuario")%>&categoria=<%= _categoriasDoUsuario.getString("ST_NOME_CAT")%>">
-                                            <h5>
+                                            <h3>
                                                 <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%>
-                                            </h5>
-                                            <p style="margin-bottom: 5px;">
-                                                <%=_categoriasDoUsuario.getString("ST_DESCRICAO_CAT")%>
+                                            </h3><p>
+                                            <p class="descricao">
+                                                <b>Descrição:</b> <%=_categoriasDoUsuario.getString("ST_DESCRICAO_CAT")%>
                                             </p>
                                             <div class="people"></div>
                                         </a>

@@ -42,7 +42,8 @@
                 <label>Descrição<br> <textarea name="descricao" required></textarea></label>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario")%>">   <br> 
                 <input type="hidden" name="acao" id="acao" value="put">   <br> 
-                <input type="submit" name="salvar">       
+                <input type="submit" name="salvar">  
+                <a href='javascript:history.back(1)'>cancelar</a>
             </form>
         </div>
     </body>

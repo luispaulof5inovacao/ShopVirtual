@@ -182,6 +182,11 @@ h1{
 font-size: 48px;
 letter-spacing: -1px;
 }
+
+div.conteudo h1{
+    font-size: 30px;
+letter-spacing: -1px;
+}
 h1{
 /*font-size: 22px;*/
 line-height: 1em;
@@ -685,10 +690,16 @@ position: absolute;
 left: 16px;
 bottom: 15px;
 zoom: 1;
+
 }
 .conteudo{
     padding-top: 50px;
 }
 .conteudonovo-item{
     padding-top: 20px;
+}
+.descricao{
+    
+    margin-bottom: 5px;
+    font-size: 11px;
 }

@@ -86,10 +86,12 @@ public class Produtos {
 
             Integer contUsuario = 0;
 
-            String query = "SELECT produtos_usuario.ID_USUARIO_USU,produtos.*\n" +
+            String query = "SELECT produtos_usuario.ID_USUARIO_USU,produtos.*,prateleiras.ST_NOME_PRA,categorias.*\n" +
                              "from produtos_usuario\n" +
                             "LEFT JOIN produtos on (produtos.ID_PRODUTO_PRO = produtos_usuario.ID_PRODUTO_PRO)\n" +
                             "LEFT JOIN produtos_prateleiras on (produtos_prateleiras.ID_PRODUTO_PRO = produtos.ID_PRODUTO_PRO)\n" +
+                            "LEFT JOIN prateleiras on (prateleiras.ID_PRATELEIRA_PRA = produtos_prateleiras.ID_PRATELEIRA_PRA)\n" +
+                            "LEFT JOIN categorias on (categorias.ID_CATEGORIA_CAT = prateleiras.ID_CATEGORIA_CAT)\n" +
                             "where produtos_usuario.ID_USUARIO_USU = '"+idUsuario+"'\n" +
                             "and produtos_prateleiras.ID_PRATELEIRA_PRA = '"+idPrateleira+"' ";
             
