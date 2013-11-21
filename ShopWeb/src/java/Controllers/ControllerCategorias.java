@@ -60,10 +60,11 @@ public class ControllerCategorias extends HttpServlet {
                    
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         String nomeCategoria = request.getParameter("nome");
+        String descricaoCategoria = request.getParameter("descricao");
         
         int idCategoria = 0;
         
-        Categoria categoria = new Categoria(nomeCategoria, idUsuario, idCategoria );
+        Categoria categoria = new Categoria(nomeCategoria, idUsuario, idCategoria, descricaoCategoria );
         Categorias daoCategoria = new Categorias();
 
         if (daoCategoria.insert(categoria, idUsuario)) {
@@ -83,9 +84,10 @@ public class ControllerCategorias extends HttpServlet {
         int idUsuario = Integer.parseInt(request.getParameter("usuario"));
         int idCategoria = Integer.parseInt(request.getParameter("categoria"));
         
+        String descricao = request.getParameter("descricao");        
         String nomeCategoria = request.getParameter("nome");
         
-        Categoria categoria = new Categoria( nomeCategoria, idUsuario, idCategoria );
+        Categoria categoria = new Categoria( nomeCategoria, idUsuario, idCategoria, descricao );
         Categorias daoCategoria = new Categorias();
 
         if (daoCategoria.post( categoria )) {

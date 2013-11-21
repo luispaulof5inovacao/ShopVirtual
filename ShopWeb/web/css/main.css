@@ -545,3 +545,150 @@ div#other_products div a {
 text-decoration: none;
 color: #444;
 }
+
+a.novo-item:visited {
+color: rgb(255, 255, 255);
+background: #FFFFFF;
+background: -webkit-gradient(linear, left top, left bottom, from(#FF4040), to(#CD0000));
+background: -moz-linear-gradient(top, #FF4040, #CD0000);
+border: 1px solid #2F9ACC;
+text-decoration: none;
+padding: 5px;
+outline: none;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-goog-ms-border-radius: 5px;
+border-radius: 5px;
+}
+
+a.novo-item:link {
+color: rgb(255, 255, 255);
+background: #FF4040;
+background: -webkit-gradient(linear, left top, left bottom, from(#2F9ACC), to(#2F9ACC ));
+background: -moz-linear-gradient(top, #2F9ACC, #2F9ACC);
+border: 1px solid #2F9ACC;
+text-decoration: none;
+padding: 5px;
+outline: none;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-goog-ms-border-radius: 5px;
+border-radius: 5px;
+}
+
+a:link {
+text-decoration: none;
+color: #000099;
+}
+
+.novo-item {
+font: normal bold 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+margin: 0px;
+}
+html {
+background: url(https://d1kwjg6ihle0hs.cloudfront.net/assets/wallpapers/paper-fe104a68b91e668bdd59f1ef8af6519c.jpg) #f5efe6;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+overflow-y: scroll;
+}
+div.workspace {
+text-align: center;
+-webkit-transition: opacity 150ms 350ms ease-in;
+-moz-transition: opacity 150ms 350ms ease-in;
+}
+div.workspace>div.container {
+margin: 0 auto;
+width: 960px;
+}
+div.panel.home_tab {
+margin-bottom: 150px;
+padding-top: 20px;
+min-height: 0;
+text-shadow: 0 1px #fff;
+}
+div.panel {
+min-height: 208px;
+}
+div.panel {
+position: relative;
+text-align: left;
+}
+div.panel.home_tab>div#all_projects section, div.panel.home_tab>section {
+margin-left: 150px;
+}
+
+div.panel.home_tab section.projects.cards {
+text-shadow: none;
+}
+
+div.panel.home_tab section.projects {
+margin-bottom: 30px;
+}
+div.panel.home_tab section.projects.cards div.row {
+zoom: 1;
+}
+div.panel.home_tab section.projects.cards article.cardprateleiras {
+width: 210px;
+height: 70;
+float: left;
+margin: 0 20px 20px 0;
+position: relative;
+text-align: left;
+background: #fff;
+padding: 15px;
+text-rendering: optimizeLegibility;
+-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+-moz-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+box-shadow: 0 0 6px rgba(0,0,0,0.3);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+div.panel.home_tab section.projects.cards article.card a.project_card {
+display: block;
+height: 100%;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+padding: 2px 0;
+-webkit-tap-highlight-color: rgba(0,0,0,0.25);
+}
+div.panel.home_tab section.projects.cards article.card h5 {
+font-size: 19px;
+margin: 0 0 3px;
+line-height: 1.1em;
+word-wrap: break-word;
+}
+
+h5 {
+font-size: 15px;
+font-weight: bold;
+margin: 20px 0 0;
+}
+div.panel.home_tab section.projects.cards article.card p {
+font-size: 16px;
+line-height: 1.2em;
+word-wrap: break-word;
+color: #aa9c84;
+}
+
+p {
+margin: 0 0 19px;
+}
+
+div.panel.home_tab section.projects.cards article.card div.people {
+position: absolute;
+left: 16px;
+bottom: 15px;
+zoom: 1;
+}
+.conteudo{
+    padding-top: 50px;
+}
+.conteudonovo-item{
+    padding-top: 20px;
+}

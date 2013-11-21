@@ -17,18 +17,21 @@ public class Categoria {
 
      
     protected String nome = null;
+    protected String descricao = null;
     protected int idUsuario = 0;
     protected int idCategoria = 0;
 
-    public Categoria( String _nome, int _idUsuario, int _idCategoria) {
+    public Categoria( String _nome, int _idUsuario, int _idCategoria, String _descricao) {
        this.nome = _nome;
        this.idUsuario = _idUsuario;
        this.idCategoria = _idCategoria;
+       this.descricao = _descricao;
     }
     public Categoria() {
        this.nome = null;
        this.idUsuario = 0;
        this.idCategoria = 0;
+       this.descricao = null;
     }
 
     public void setIdCategoria(int idCategoria) {
@@ -38,6 +41,9 @@ public class Categoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
     public void setidUsuario(int  idUsuario) {
         this.idUsuario = idUsuario;
@@ -45,6 +51,9 @@ public class Categoria {
     
     public int getIdCategoria() {
         return this.idCategoria;
+    }
+    public String getDescricao() {
+        return this.descricao;
     }
     
     public String getNome() {

@@ -21,7 +21,8 @@
         <div>
             <form action="ControllerCategorias" method="post">
                 <label>Nome</label><br>
-                <input type="text" name="nome" id="nome"  placeholder="Prateleira" required><br>  
+                <input type="text" name="nome" id="nome"  placeholder="Categoria" required><br> 
+                <label>Descrição<br> <textarea name="descricao" required></textarea></label>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">    
                 <input type="hidden" name="acao" id="put" value="put"><br>    
                 <input type="submit" name="salvar" value="Cadastrar">    

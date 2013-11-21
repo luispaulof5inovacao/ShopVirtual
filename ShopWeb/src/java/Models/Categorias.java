@@ -28,8 +28,8 @@ public class Categorias {
 
             Integer contUsuario = 0;
 
-            String query = "INSERT INTO `categorias`(ST_NOME_CAT) "
-                    + "VALUES ('" + categoria.getNome() + "')";
+            String query = "INSERT INTO `categorias`(ST_NOME_CAT,ST_DESCRICAO_CAT) "
+                    + "VALUES ('" + categoria.getNome() + "','" + categoria.getDescricao()+ "')";
             
             bd.execComando( query );
             
@@ -62,6 +62,7 @@ public class Categorias {
             
             String queryUsuarioCategorias = "UPDATE `categorias` "
                     + " set categorias.ST_NOME_CAT = '"+categoria.getNome()+"'"
+                    + " set categorias.ST_DESCRICAO_CAT = '"+categoria.getDescricao()+"'"
                     + "WHERE categorias.ID_CATEGORIA_CAT = '"+categoria.getIdCategoria()+"' ";
 
             bd.execComando( queryUsuarioCategorias );  
@@ -101,7 +102,7 @@ public class Categorias {
 
         try {
 
-            String queryCategoriasDoUsuario  = "select categorias_usuario.*,categorias.ST_NOME_CAT\n" +
+            String queryCategoriasDoUsuario  = "select categorias_usuario.*,categorias.ST_NOME_CAT,categorias.ST_DESCRICAO_CAT\n" +
                             "from categorias_usuario\n" +
                             "LEFT JOIN categorias on ( categorias.ID_CATEGORIA_CAT = categorias_usuario.ID_CATEGORIA_CAT)\n" +
                             "where categorias_usuario.ID_USUARIO_USU = '"+ idUsuario +"' ";
