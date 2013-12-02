@@ -56,17 +56,21 @@ public class ControllerProdutos extends HttpServlet {
 
     protected void put(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-        response.setContentType("text/html;charset=UTF-8");
+//        response.setCon   tentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
             String nomeProduto = request.getParameter("nomeproduto");
-            String valorProduto = request.getParameter("valorproduto");
+            String valor  = request.getParameter("valorproduto");
+            valor = valor.replace(",", ".");
+            float valorProduto = Float.valueOf(valor);
             int prateleiraProduto = Integer.parseInt(request.getParameter("prateleira"));
             String descricaoProduto = request.getParameter("descricao");
             int idUsuario = Integer.parseInt(request.getParameter("usuario"));
 
-            Produto produto = new Produto(nomeProduto, prateleiraProduto, prateleiraProduto, descricaoProduto, idUsuario);
+            Produto produto = new Produto(nomeProduto, valorProduto, 
+                    prateleiraProduto, descricaoProduto, idUsuario);
+            
             Produtos daoProdutos = new Produtos();
 
             
@@ -85,12 +89,14 @@ public class ControllerProdutos extends HttpServlet {
     
     protected void post(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-        response.setContentType("text/html;charset=UTF-8");
+//        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
             String nomeProduto = request.getParameter("nomeproduto");
-            String valorProduto = request.getParameter("valorproduto");
+            String valor  = request.getParameter("valorproduto");
+            valor = valor.replace(",", ".");
+            float valorProduto = Float.valueOf(valor);
             int prateleiraProduto = Integer.parseInt(request.getParameter("prateleira"));
             String descricaoProduto = request.getParameter("descricao");
             int idUsuario = Integer.parseInt(request.getParameter("usuario"));

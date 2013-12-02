@@ -23,11 +23,14 @@
 
 %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
         <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Prateleiras</title>
@@ -57,7 +60,9 @@
                                             </h5>
                                             <p style="margin-bottom: 5px;">                                                
                                             </p>
-                                            <div class="people"></div>
+                                            <div class="people">
+                                                <img style="padding-left: 40px;" src="../css/prateleira.png">
+                                            </div>
                                         </a>
                                     </article>  
                                     <%

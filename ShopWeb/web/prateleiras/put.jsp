@@ -11,7 +11,10 @@
       Categorias categorias = new Categorias();
       ResultSet _categorias = categorias.doUsuario(idUsuario );
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
 <!DOCTYPE html>
 <html>
     <head>

@@ -7,7 +7,10 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Prateleiras"%>
  <%@include file="../header.html" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
 <%
     Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
     Prateleiras prateleiras = new Prateleiras();
@@ -16,7 +19,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
         <link rel=stylesheet type="text/css" href="../css/main.css"> 
         <link rel=stylesheet type="text/css" href="../css/header.css"> 
         <title>Cadastrar novo produto</title>
@@ -25,7 +28,7 @@
         <h1>Cadastrar novo produto</h1>
         <div>
             <form action="ControllerProdutos" method="post">
-                <label>Nome referÃªncia produto</label><br>
+                <label>Nome referência produto</label><br>
                 <input type="text" name="nomeproduto" id="nomeproduto" required><br> 
 
                 <label>Valor produto</label><br>                
@@ -39,7 +42,7 @@
                     <% }%>
                 </select><br>
 
-                <label>DescriÃ§Ã£o<br> <textarea name="descricao" required></textarea></label>  
+                <label>Descrição<br> <textarea name="descricao" cols="40" rows="5" required></textarea></label>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario")%>">   <br> 
                 <input type="hidden" name="acao" id="acao" value="put">   <br> 
                 <input type="submit" name="salvar">  

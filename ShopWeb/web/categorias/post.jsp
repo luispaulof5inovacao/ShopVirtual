@@ -8,7 +8,10 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.Categorias"%>
 <%@page import="Controllers.ControllerCategorias"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
  <%@include file="../header.html" %>
 
 <%

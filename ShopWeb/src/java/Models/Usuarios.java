@@ -27,10 +27,13 @@ public class Usuarios {
 
             Integer contUsuario = 0;
 
-            String query = "INSERT INTO `usuarios`(ST_NOME_USU,ST_EMAIL_USU,ST_SENHA_USU) "
-                    + "VALUES ('" + usuario.getNome() + "', '" + usuario.getEmail() + "', '" + usuario.getSenha() + "')";
+            String query = "INSERT INTO `usuarios`(ST_NOME_USU,ST_EMAIL_USU,ST_SENHA_USU,ST_CNPJ_USU,"
+                    + "FL_ATIVO_USU,FL_FORNECEDOR_USU) "
+                    + "VALUES ('" + usuario.getNome() + "', '" + usuario.getEmail() + "', "
+                    + "'" + usuario.getSenha() + "', '"+usuario.getCnpj()+"', "
+                    + "'" +usuario.getFlAtivo()+"', '"+usuario.getflFornecedor()+"'  )";
 
-            String consulta = "SELECT * FROM USUARIOS WHERE ST_EMAIL_USU = '" + usuario.getEmail() + "'";
+            String consulta = "SELECT * FROM USUARIOS WHERE ST_CNPJ_USU = '" + usuario.getCnpj() + "'";
 
             ResultSet resultado = bd.execConsulta(consulta);
 
@@ -65,8 +68,30 @@ public class Usuarios {
                     + "`ST_EMAIL_USU`='"+usuario.getEmail()+"',\n"
                     + "`ST_SENHA_USU`='"+usuario.getSenha()+"', \n"
                     + "`FL_FORNECEDOR_USU`='"+usuario.getflFornecedor()+"', \n"
-                    + "`ST_SEXO_USU`='"+usuario.getSexo()+"'\n" +
+                    + "`ST_SEXO_USU`='"+usuario.getSexo()+"', \n" 
+                    + "`ST_CEP_USU`='"+usuario.getCep()+"', \n" 
+                    + "`ST_UF_USU`='"+usuario.getUf()+"', \n" 
+                    + "`ST_ENDERECO_USU`='"+usuario.getEndereco()+"', \n"
+                    + "`ST_BAIRRO_USU`='"+usuario.getBairro()+"', \n" 
+                    + "`ST_CIDADE_USU`='"+usuario.getCidade()+"'\n" +
                     " WHERE (`ID_USUARIO_USU`='"+usuario.getidUsuario()+"') ";
+            
+            bd.execComando( query );
+            bd.fecharConexao();
+
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+
+    }
+    public boolean ativarEmpresa(int idEmpresa) throws Exception {
+
+        try {
+
+            String query = "UPDATE `usuarios` SET `FL_ATIVO_USU`= '1' WHERE (`ID_USUARIO_USU`='"+idEmpresa+"') ";
             
             bd.execComando( query );
             bd.fecharConexao();

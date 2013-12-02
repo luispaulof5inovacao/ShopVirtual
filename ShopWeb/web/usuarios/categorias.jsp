@@ -46,11 +46,16 @@
                                             <h5>
                                                 <%=_categoriasDoUsuario.getString("ST_NOME_CAT")%> 
                                             </h5>
-                                            <p style="margin-bottom: 5px;"></p>
+                                            <p style="margin-bottom: 5px;">
+                                                
+                                            </p>
+                                            <div class="people">
+                                                <img  style="padding-left: 40px;" src="../css/categoria.png">
+                                            </div>
                                             <p style="font-size: 12px;">
                                                 <b>Descrição :</b> <%=_categoriasDoUsuario.getString("ST_DESCRICAO_CAT")%>
                                             </p>
-                                            <div class="people"></div>
+                                            
                                         </a> 
                                     </article>  
 

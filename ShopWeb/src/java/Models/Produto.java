@@ -21,7 +21,8 @@ public class Produto {
     protected int idPrateleira = 0;
     protected float valor = 0;
 
-    public Produto( String _nomeProduto, float _valorProduto, int _prateleiraProduto, String _descricaoProduto, int _idUsuario ){
+    public Produto( String _nomeProduto, float _valorProduto,
+            int _prateleiraProduto, String _descricaoProduto, int _idUsuario ){
         
         this.nome = _nomeProduto;
         this.valor = _valorProduto;

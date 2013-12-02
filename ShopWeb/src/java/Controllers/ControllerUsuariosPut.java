@@ -35,40 +35,52 @@ public class ControllerUsuariosPut extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
- try{  
-          
-          response.setContentType("text/html;charset=UTF-8");
-          
-          String email = request.getParameter("email");
-          String nome = request.getParameter("nome");
-          String senha = request.getParameter("senha");
-          String confimacaosenha = request.getParameter("confimacaosenha");
+        try {
 
-          Usuario usuario = new Usuario();
-          Usuarios daoUsuarios = new Usuarios();
-          
-          usuario.setEmail( email );
-          usuario.setSenha( senha );
-          usuario.setNome( nome );
-          
-         
-          if( !daoUsuarios.insert( usuario )){    
-              out.println("<script type='text/javascript'> "
-                      + "alert('Email informado já esta sendo utilizado!');"
-                      + " location.href='index.html'; "
-                      + " </script>");
+            response.setContentType("text/html;charset=UTF-8");
 
-          }else{              
-            out.println("<script type='text/javascript'> "
-                    + "alert('Cadastro efetuado com sucesso!')"
-                    + "location.href='login.jsp'; "
-                    + "</script>");            
-          }
+            String email = request.getParameter("email");
+            String nome = request.getParameter("nome");
+            String senha = request.getParameter("senha");
+            String cnpj = request.getParameter("cnpj");
+            String confimacaosenha = request.getParameter("confimacaosenha");
+            int flFornecedor = 0;
 
-      }catch(Exception e){
-      
-      }
-    
+            if (!senha.equals(confimacaosenha)) {
+                out.println("<script type='text/javascript'> "
+                        + "alert('Senhas diferentes!');"
+                        + " location.href='index.html'; "
+                        + " </script>");
+            } else {
+
+                Usuario usuario = new Usuario();
+                Usuarios daoUsuarios = new Usuarios();
+
+                usuario.setEmail(email);
+                usuario.setSenha(senha);
+                usuario.setNome(nome);
+                usuario.setCnpj(cnpj);
+                usuario.setflAtivo(flFornecedor);
+
+
+                if (!daoUsuarios.insert(usuario)) {
+                    out.println("<script type='text/javascript'> "
+                            + "alert('Erro ao cadastrar CNPJ já esta sendo utilizado!');"
+                            + " location.href='index.html'; "
+                            + " </script>");
+
+                } else {
+                    out.println("<script type='text/javascript'> "
+                            + "alert('Cadastrado realizado com sucesso! "
+                            + "Aguarde 24 horas para liberação do cadastro.');"
+                            + " location.href='login.jsp'; "
+                            + " </script>");
+                }
+
+
+            }
+        } catch (Exception e) {
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

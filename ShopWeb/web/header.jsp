@@ -1,8 +1,17 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<%-- 
+    Document   : header
+    Created on : 01/12/2013, 18:38:12
+    Author     : LuisPaulo
+--%>
 
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
+
+<%
+     Integer idUsuario = ( Integer )( session.getAttribute("usuario") );
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,3 +55,4 @@ and open the template in the editor.
         </header>
     </body>
 </html>
+

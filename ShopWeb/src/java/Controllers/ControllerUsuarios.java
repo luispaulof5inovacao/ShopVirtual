@@ -6,6 +6,7 @@ package Controllers;
  */
 
 import Library.Conexao;
+import Library.buscaCep;
 import Models.Usuario;
 import Models.Usuarios;
 import java.io.IOException;
@@ -68,11 +69,25 @@ public class ControllerUsuarios extends HttpServlet {
           String email = request.getParameter("email").trim();
           String nome = request.getParameter("nome").trim(); 
           String senha = request.getParameter("senha").trim(); 
-          String sexo = request.getParameter("sexo").trim(); 
+          String sexo = null; 
+          String cnpj = null; 
+          String cep = request.getParameter("cep").trim();  
+          int flAtivo = 1;
           int idUsuario = Integer.parseInt(request.getParameter("usuario"));
           int flFornecedor = 0;
+          
+          buscaCep enderecos = new buscaCep();
+          
+                      
+          String endereco = enderecos.getEndereco(cep);
+          String cidade = enderecos.getCidade(cep);
+          String bairro = enderecos.getBairro(cep);
+          String estado = enderecos.getUF(cep);
+         
+          
 
-          Usuario usuario = new Usuario( email, sexo, nome, senha, flFornecedor, idUsuario  );
+          Usuario usuario = new Usuario( email, sexo, nome, senha, flFornecedor, idUsuario, cnpj, flAtivo,
+                                         endereco, cidade, bairro, estado, cep);
           Usuarios daoUsuarios = new Usuarios();
                     
          

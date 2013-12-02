@@ -6,7 +6,10 @@
 
        
 <%@page import="Controllers.ControllerCategorias"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" 
+contentType="text/html" 
+pageEncoding="ISO-8859-1" 
+%> 
  <%@include file="../header.html" %>
 <!DOCTYPE html>
 <html>
@@ -21,8 +24,8 @@
         <div>
             <form action="ControllerCategorias" method="post">
                 <label>Nome</label><br>
-                <input type="text" name="nome" id="nome"  placeholder="Categoria" required><br> 
-                <label>DescriÃ§Ã£o<br> <textarea name="descricao" required></textarea></label>  
+                <input type="text" size="50"  name="nome" id="nome"  placeholder="Categoria" required><br> 
+                <label>Descrição<br> <textarea name="descricao" cols="40" rows="5" required></textarea></label>  
                 <input type="hidden" name="usuario" id="usuario" value="<%= session.getAttribute("usuario") %>">    
                 <input type="hidden" name="acao" id="put" value="put"><br>    
                 <input type="submit" name="salvar" value="Cadastrar">    

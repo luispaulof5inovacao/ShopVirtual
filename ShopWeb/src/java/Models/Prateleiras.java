@@ -30,6 +30,7 @@ public class Prateleiras {
             String queryInsertPrateleiras = "INSERT INTO `prateleiras`(ST_NOME_PRA,ID_CATEGORIA_CAT) "
                     + "VALUES ('" + prateleira.getNome() + "','"+prateleira.getidCategoria()+"')";
             
+            System.out.println( "--->Query"+queryInsertPrateleiras );
             bd.execComando( queryInsertPrateleiras );
             
             ResultSet idPrateleira = bd.execConsulta("select * from prateleiras");

@@ -57,12 +57,21 @@ public class ControllerAuth extends HttpServlet {
                 ResultSet dadosUsuario = daoUsuario.comEmail(email);
                 dadosUsuario.first();
                 
-                session.setAttribute("nome", dadosUsuario.getString( "ST_NOME_USU" ));
-                session.setAttribute("email", dadosUsuario.getString( "ST_EMAIL_USU" ) );
-                session.setAttribute("usuario", dadosUsuario.getInt( "ID_USUARIO_USU" ) );
-                session.setAttribute("fornecedor", dadosUsuario.getInt( "FL_FORNECEDOR_USU" ) );
+                if (dadosUsuario.getInt("FL_ATIVO_USU") == 1) {
+                    session.setAttribute("nome", dadosUsuario.getString("ST_NOME_USU"));
+                    session.setAttribute("email", dadosUsuario.getString("ST_EMAIL_USU"));
+                    session.setAttribute("usuario", dadosUsuario.getInt("ID_USUARIO_USU"));
+                    session.setAttribute("fornecedor", dadosUsuario.getInt("FL_FORNECEDOR_USU"));
 
-                response.sendRedirect("/ShopWeb/usuarios/home.jsp");  
+                    response.sendRedirect("/ShopWeb/usuarios/home.jsp");
+                }else{
+                
+                       session.invalidate();
+                        out.println("<script type='text/javascript'> "
+                              + "alert('Cadastro ainda em análise!');"
+                              + " location.href='login.jsp'; "
+                              + " </script>"); 
+                }
                 
             }else{            
                 session.invalidate();
